@@ -1,5 +1,5 @@
 #+TITLE: The Rudest Book
-
+#+SETUPFILE: https://blog.bugswriter.com/static/theme.setup
 * You are Product
 - let’s concern ourselves with arming you with
   better means, methods and mechanisms to deflect and deal with shit that has
