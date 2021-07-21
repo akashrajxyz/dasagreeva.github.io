@@ -1,0 +1,1126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-07-21 Wed 23:16 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>The Rudest Book</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="AkashRaj" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="https://blog.bugswriter.com/static/style.css"/>
+
+<script type="text/javascript" src="https://blog.bugswriter.com/static/org-info.js">
+// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
+// @license-end
+</script>
+
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
+<!--/*--><![CDATA[/*><!--*/
+org_html_manager.set("TOC_DEPTH", "1");
+org_html_manager.set("LINK_HOME", "");
+org_html_manager.set("LINK_UP", "");
+org_html_manager.set("LOCAL_TOC", "1");
+org_html_manager.set("VIEW_BUTTONS", "0");
+org_html_manager.set("MOUSE_HINT", "underline");
+org_html_manager.set("FIXED_TOC", "0");
+org_html_manager.set("TOC", "1");
+org_html_manager.set("VIEW", "info");
+org_html_manager.setup();  // activate after the parameters are set
+/*]]>*///-->
+// @license-end
+</script>
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">The Rudest Book</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orge42ad1f">1. You are Product</a></li>
+<li><a href="#orga7b5bab">2. You know you want to be special</a></li>
+<li><a href="#org51c3826">3. What Rejections do to us</a></li>
+<li><a href="#orgb38d529">4. people are World</a></li>
+<li><a href="#org5a3c30e">5. Do Failures mess you up?</a>
+<ul>
+<li><a href="#org29960ed">5.1. How Not To Deal with failures</a></li>
+<li><a href="#orgba78025">5.2. How Winning is done mentally</a>
+<ul>
+<li><a href="#org44fc371">5.2.1. People are successful number of reasons:</a></li>
+</ul>
+</li>
+<li><a href="#orgfa5a69f">5.3. HOW WINNING IS DONE PRACTICALLY</a></li>
+<li><a href="#org303fca8">5.4. FAILURES TEACH YOU HOW TO WIN THE WAR</a></li>
+</ul>
+</li>
+<li><a href="#orged46966">6. Finding Love Can be a pain in the ass</a></li>
+<li><a href="#org551aad1">7. How your self dies</a>
+<ul>
+<li><a href="#org5c2426e">7.1. the Warning</a></li>
+<li><a href="#orgd04386c">7.2. The murder of individuality</a></li>
+</ul>
+</li>
+<li><a href="#org79943f4">8. Screw Happiness</a>
+<ul>
+<li><a href="#org68a82fc">8.1. What is Self-Satisfaction ?</a></li>
+<li><a href="#orgd7ccfaf">8.2. Why do we chase after happiness like junkies ?</a>
+<ul>
+<li><a href="#org4517dba">8.2.1. How happiness screws you over and over!</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgb1607d2">9. Choose Satisfaction, not happiness</a>
+<ul>
+<li><a href="#orgcd45e27">9.1. Long-Term Happiness (Value)</a></li>
+<li><a href="#org4d07cce">9.2. Short-Term Happiness (Insterest)</a></li>
+</ul>
+</li>
+<li><a href="#org49abae6">10. Screw Pleasing People</a>
+<ul>
+<li><a href="#org9501469">10.1. Do you care what others think about you ??</a></li>
+<li><a href="#orgcb0c2d8">10.2. Do you rely on people for the motivation ??</a></li>
+</ul>
+</li>
+<li><a href="#org53cf5aa">11. Screw you Heroes</a>
+<ul>
+<li><a href="#org76e0d22">11.1. Heroes</a></li>
+<li><a href="#org798478c">11.2. Why do we love Heroes ?</a></li>
+<li><a href="#org1ede111">11.3. A society that funtion on &rsquo;good&rsquo; and &rsquo;bad&rsquo; is dumb ?</a></li>
+<li><a href="#org55f5d8a">11.4. What it means to admire someone</a></li>
+</ul>
+</li>
+<li><a href="#org2d5a87f">12. The Pieces of shit Online</a>
+<ul>
+<li><a href="#orgea40f5b">12.1. THRUTH ABOUT SOCIAL MEDIA INFLUENCERS</a></li>
+<li><a href="#org61b69db">12.2. HOW TO SAVE YOURSELF FROM THIS BULLSHIT</a></li>
+</ul>
+</li>
+<li><a href="#orgf7af2a0">13. How to Think</a></li>
+<li><a href="#orgb191243">14. A Few Simple things to neve rforget</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orge42ad1f" class="outline-2">
+<h2 id="orge42ad1f"><span class="section-number-2">1</span> You are Product</h2>
+<div class="outline-text-2" id="text-1">
+<ul class="org-ul">
+<li>let’s concern ourselves with arming you with
+better means, methods and mechanisms to deflect and deal with shit that has
+happened to you, is happening to you and will happen to you.</li>
+
+<li>Let’s start with you. You are a product. You are a product with hope
+attached to it. What does that mean? It means that, one day, you are meant to
+become this awesome, functional unit capable of choosing jobs, careers,
+relationships, environments and economies on your own volition—that’s the
+hope. The better the choices, the better the product you are—that’s the simple
+law on the basis of which the world judges you.
+
+<ul class="org-ul">
+<li>‘Emotional responses’ is a garbage teacher, because as a kid, the
+emotional intelligence is underdeveloped.</li>
+</ul></li>
+
+<li>Anyway, when the time comes, a lot of them will take complete
+advantage of you, rid you of your emotional innocence and turn your world
+upside down. It will most definitely happen, history tells you that, no matter
+who you are or what you do—rich, talented, genius, pretty, strong, powerful,
+polite, kind, or careful.</li>
+<li></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orga7b5bab" class="outline-2">
+<h2 id="orga7b5bab"><span class="section-number-2">2</span> You know you want to be special</h2>
+<div class="outline-text-2" id="text-2">
+<ul class="org-ul">
+<li>Specialness is the badge of realisation you earn. It may seem very
+simple to you, but this thinking can change the course of your life. Any
+achievement dictates you have created or mastered something. This means
+that not only did you gain in terms of knowledge, but you built habits of
+discipline, hard work, prioritising and focusing—habits that will serve you in
+almost all aspects of life.</li>
+<li>becomes a reference point for yourself in the future—I was able to achieve
+this, this is who I am— but also proves to yourself that you have what it takes
+to be capable—I believe I can achieve anything I put my mind to.</li>
+
+<li>Whatever the case may be, the right to feel special
+must be earned and must only be yours to give. It shouldn’t belong to others
+because:</li>
+<li>Why am I special? What
+have I done in my life?, and get a clear answer. In case you feel dissatisfied,
+then you have the option to earn it. Nobody gives it to you, you have to take
+it. But that’s the hard part, earning it.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org51c3826" class="outline-2">
+<h2 id="org51c3826"><span class="section-number-2">3</span> What Rejections do to us</h2>
+<div class="outline-text-2" id="text-3">
+<ul class="org-ul">
+<li>Rejections are Normal
+<ul class="org-ul">
+<li>Don&rsquo;t prove to orthers</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgb38d529" class="outline-2">
+<h2 id="orgb38d529"><span class="section-number-2">4</span> people are World</h2>
+<div class="outline-text-2" id="text-4">
+<ul class="org-ul">
+<li>People are weird</li>
+<li>To understand how to deal with something, you need to first figure out what
+it is you’re dealing with</li>
+<li>the difference between &rsquo;knowing&rsquo; and &rsquo;understanding&rsquo;</li>
+<li>Your perception of something creates expectations from them</li>
+<li>when you meet someone
+<ul class="org-ul">
+<li>data is king</li>
+<li>people are weird</li>
+<li>we live in era of advertising and sale</li>
+<li></li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-org5a3c30e" class="outline-2">
+<h2 id="org5a3c30e"><span class="section-number-2">5</span> Do Failures mess you up?</h2>
+<div class="outline-text-2" id="text-5">
+</div>
+<div id="outline-container-org29960ed" class="outline-3">
+<h3 id="org29960ed"><span class="section-number-3">5.1</span> How Not To Deal with failures</h3>
+<div class="outline-text-3" id="text-5-1">
+<ul class="org-ul">
+<li>I am a fucking idiot, I am nothing, I am a loser, I don’t
+deserve anything, I deserve to die. In many cases, these feelings are
+accompanied by fear of your parents’ wrath, friends’</li>
+<li>This chain of self-harm needs to be broken with the knowledge that failures,
+ losses and rejections are normal, and a solution that directs all those highly
+powerful negative emotions into something useful</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgba78025" class="outline-3">
+<h3 id="orgba78025"><span class="section-number-3">5.2</span> How Winning is done mentally</h3>
+<div class="outline-text-3" id="text-5-2">
+<ul class="org-ul">
+<li>You wanna do this, right?
+This may seem like a very simple question, but, my friend, there is a
+difference between wanting to do something and having to do something.
+Most people in this world are doing what they do not because they want to,
+but because they have to. Having to do something becomes a duty you have
+to fulfil. Wanting to do something is a choice. Therefore, to win, the very
+first thing you need to clarify in your mind is, do you really wanna do this?</li>
+</ul>
+</div>
+<div id="outline-container-org44fc371" class="outline-4">
+<h4 id="org44fc371"><span class="section-number-4">5.2.1</span> People are successful number of reasons:</h4>
+<div class="outline-text-4" id="text-5-2-1">
+<ul class="org-ul">
+<li>A hunger for money , status , power</li>
+<li>a hunger to avoid poverty , desperation , conditions you wouldn&rsquo;t
+want to go back to ever again</li>
+<li>a hunger to prove in your own eyes that you are capable (which would
+be the concept of being special)</li>
+<li>a hunger to provide for those whom you love and are dependent on you</li>
+</ul>
+
+
+<p>
+Success is a matter of choice
+</p>
+<ul class="org-ul">
+<li>What traditional winning looks like
+this is basically how society crowns a
+winner. The results of any competition declare a winner and the losers.
+Society celebrates the winner and ignores the losers</li>
+<li>How real winning works
+one wins after having failed time after time. Theessence behind real winning is not giving up, no matter what badges and
+medals society is handing out. When it comes to your ‘heroes’ and those who
+define success and hard work for you, you see them the same way</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-orgfa5a69f" class="outline-3">
+<h3 id="orgfa5a69f"><span class="section-number-3">5.3</span> HOW WINNING IS DONE PRACTICALLY</h3>
+<div class="outline-text-3" id="text-5-3">
+<p>
+You want to be special. This specialness is not about being superficial, it is
+about being capable
+</p>
+<ul class="org-ul">
+<li>Utility asks you: what’s the use of what you are learning? In how many
+areas, fields of study and practices can it be implemented? How much self-
+belief does this learning generate in you? How much self-value does it
+provide? Does it have value in the long term, in the market? And lastly, at
+what point does whatever you are learning start to have real utility in terms of
+success? Basically, where do you stand right now? Thinking in terms of
+utility makes you realise that there is a real world out there, away from your
+frog-well, with real competition, and the trophies you may be collecting are
+mere indicators that you are on the right path, but you haven’t actually won.</li>
+
+<li>Opportunity asks you: how can you use what you are learning? How many
+doors will it open for you? In how many ways can you capitalise on this
+skill? How many opportunities does it have in the marketplace? What’s the
+full potential of this skill if learned until you are an expert? Where is the
+geographic hub for opportunities for this skill? Thinking in terms of
+opportunity gives you ambition. Ambition gives you seriousness. With
+ambitious goals, the nature of its utility in your mind is revised and reset as
+well.</li>
+
+<li>Ability asks you: how well can you do what you are learning? Do you have a
+natural talent for this? Are you able to learn this faster than others? Are you
+slower than others? If yes, then despite being slower, are you able to beat the
+competition or stand on par by working harder than them? Success cares
+about nothing but results. Are you able to think creatively, which means can
+you create new opportunities from the existing ones? Are you able to think
+cleverly? Thinking in terms of abilities makes you aware of where you stand
+right now and where your ambition requires you to be standing.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org303fca8" class="outline-3">
+<h3 id="org303fca8"><span class="section-number-3">5.4</span> FAILURES TEACH YOU HOW TO WIN THE WAR</h3>
+<div class="outline-text-3" id="text-5-4">
+<ul class="org-ul">
+<li>failures are normal</li>
+<li>First, you take ownership of the failure. It’s very different from acting as
+if you have been stung by failure. Both are similar realisations, but come
+from different points of view. The first makes you responsible, the other a
+victim. Instead of finding tendencies, people and relationships to blame, you
+make yourself fully responsible for that failure. This is step one of the
+investigation. I deserve this. Whatever impact this failure causes, I deserve
+and take responsibility for it. Once you take ownership, it becomes your
+fuck-up. You are not a victim, it didn’t happen to you, you caused it. Once
+you own it</li>
+<li>After ownership begins assessment: Why did I fail? Assessment
+produces findings about your abilities, habits, relationships and the people in
+your life. For example, what was your approach going into the competition—
+serious or lazy? Did your approach include following a plan, routine, daily
+rituals backed by strict discipline? Or was it just counting the months left and
+convincing yourself of bullshit like you’ve still got it under control? If your
+approach was serious, then should you have worked for more hours a day?
+What state of mind did you have the entire time? Was your focus clouded by
+emotional entanglements? Were you busy in the consumption of short-term
+pleasures? Or were you desperately running after getting laid or finding true
+love?</li>
+<li>And this is why failures are important—
+they teach you everything you need to win the war.</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-orged46966" class="outline-2">
+<h2 id="orged46966"><span class="section-number-2">6</span> Finding Love Can be a pain in the ass</h2>
+<div class="outline-text-2" id="text-6">
+<p>
+who you are professionally ?
+</p>
+<ul class="org-ul">
+<li>what is my ambition ? (what do you want to become exactly ? where
+do you want to reach ?)</li>
+<li>what are my current goals ? (short-term and long term goals to
+actualise the ambition mentioned above)</li>
+<li>what is the routine I need to achieve my goals ? (Does&rsquo;t need
+explanation.)</li>
+<li>what are my dreams ? (why do you want to achieve that ?)</li>
+<li>what is the nature of the line of work I have chosen? (How demanding
+is it ? what&rsquo;s the scope for relaxation? at what age and with what skillset would you have achieved credible respect in your field or workplace?)</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org551aad1" class="outline-2">
+<h2 id="org551aad1"><span class="section-number-2">7</span> How your self dies</h2>
+<div class="outline-text-2" id="text-7">
+</div>
+<div id="outline-container-org5c2426e" class="outline-3">
+<h3 id="org5c2426e"><span class="section-number-3">7.1</span> the Warning</h3>
+<div class="outline-text-3" id="text-7-1">
+<p>
+Approval ==&gt; when does it starts and how does it work ?
+it start with you wanting to prove to yourself that you are capable
+you start following them that does&rsquo;t make you intelligent beacause
+followers can be clever, smart not intelligent
+</p>
+</div>
+</div>
+<div id="outline-container-orgd04386c" class="outline-3">
+<h3 id="orgd04386c"><span class="section-number-3">7.2</span> The murder of individuality</h3>
+<div class="outline-text-3" id="text-7-2">
+<p>
+don&rsquo;t seek for the approval of others it&rsquo;s cripple you
+&rsquo;self&rsquo; is the individual in you.
+It is the person you don&rsquo;t want to accept and ruyn away from to become a
+different person. It is who you really are. It is who you are meant to know
+better, empower an;d develop.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org79943f4" class="outline-2">
+<h2 id="org79943f4"><span class="section-number-2">8</span> Screw Happiness</h2>
+<div class="outline-text-2" id="text-8">
+</div>
+<div id="outline-container-org68a82fc" class="outline-3">
+<h3 id="org68a82fc"><span class="section-number-3">8.1</span> What is Self-Satisfaction ?</h3>
+<div class="outline-text-3" id="text-8-1">
+<p>
+Your major struggle in life is to be happy; it is not to be satisfied
+satisfation offer a state of mind called peacefulness. You would be at peace with
+yourself. And this is also where the problem comes: to be at peace with yourself,
+you will have to know your ‘self’ first
+</p>
+<ol class="org-ol">
+<li>Self-Belief
+the knowledge of self produces self-belief
+It’s as simple as this: you are unsure and scared of what you don’t
+know; you’re confident and comfortable with things you know.</li>
+<li>What does your self want ?</li>
+<li>What you don&rsquo;t want !
+Furthermore, the knowledge of self produces the knowledge of what you
+don’t want, which is far more important than knowing what the self wants.
+Therefore, knowing well what your ‘self’ doesn’t want improves your
+decision-making abilities. This enables your view of yourself as an
+individual, and it also gives your identity uniqueness in the eyes of people.</li>
+<li>What makes your self happy ?
+So, as a recap, what makes you happy is, one, doing things that are
+generally known to make people happy, and two, having theoretical ideas and
+fantasies regarding what would make you happy in the future.
+What makes your self happy is knowing clearly what activities give you
+joy, and what would give you satisfaction in the long run.</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-orgd7ccfaf" class="outline-3">
+<h3 id="orgd7ccfaf"><span class="section-number-3">8.2</span> Why do we chase after happiness like junkies ?</h3>
+<div class="outline-text-3" id="text-8-2">
+<p>
+The problem with responding more to feeling good is that chances are
+you may become a person who just focuses on feelings rather than thinking.
+Feeling-based sounds something like: This makes me feel good,
+therefore this is good. I want it. Thinking-based sounds like: Just because
+something makes me feel good doesn’t mean it’s good. I will think about if I
+really want it.
+the fact that feelings change all the fucking time.
+why most of us remain feeling-based happiness junkies:
+</p>
+<ul class="org-ul">
+<li>In short, happiness is a by-product of life done right. And I
+hope this does not come as a surprise, but doing things right requires
+thinking, a lot of it.</li>
+</ul>
+</div>
+<div id="outline-container-org4517dba" class="outline-4">
+<h4 id="org4517dba"><span class="section-number-4">8.2.1</span> How happiness screws you over and over!</h4>
+<div class="outline-text-4" id="text-8-2-1">
+<ol class="org-ol">
+<li>Why am I not happy even though I have a great life?
+It’s because ‘the list of what makes you happy’ was decided back when you
+were a clueless, confused kid. And you stuck with that list because it did
+bring you momentary happiness from being accepted by and having
+relationships with fantasy people, fantasy experiences, and even achieving
+some milestones in your career for the approval of these fantasy people. But
+the focus on the self consistently remained dormant. Therefore, the result
+now is: you know how to be happy in the moment, but you aren’t satisfied
+because you have a very distant relationship with your ‘self’. You are still as
+clueless about who you are and what makes your ‘self’ happy as you were
+fifteen fucking years ago.
+As a side note, now you know when philosophers said Know thyself, it
+wasn’t some simple thing you didn’t need to think much about, it meant your
+fucking life.</li>
+<li>I know I shouldn’t be with them, yet I can’t stop loving them. I
+can’t stop chasing after them. I can’t move on from that person.
+You can’t because a part of you is genuinely convinced that their union with
+your existence brings you the ultimate happiness. You feel that way because
+of the happiness that you once felt with them, which according to your mind
+is ‘the best feeling ever’. And because your goal in life is to be happy, and
+you currently don’t know of any other happiness better than what you felt
+with them, you obsess over them even though their presence is currently
+brutalising you with pain. If you miss them, it’s because they made you
+happy once. You miss that particular happiness, not them really. You will
+disregard their existence the moment you find it with another person. It’s
+because you are a happiness-junkie, that hit of happiness is much more
+valuable to you than your self-respect, mental health and the overall
+peacefulness in your life. So you say, fuck it, and keep going after that hit.</li>
+<li>I know I should be working hard, but I waste my day doing
+bullshit things on my phone, being lazy and useless. And because
+of that I am filled with regret.
+You don’t work, because whatever you do instead of working makes you
+happy. It’s as simple as that. You being lazy does not mean you are dead in
+those moments. You are still working towards feeling great, quite actively so,
+by watching some comedy, drama, commentary, news, animal rescue videos,
+or whatever it is that you watch. You do work a lot—except it’s in the
+direction of gathering information which is of no use to your real work. So, a
+correct way to voice your displeasure is, I was unproductive, not, I didn’t do
+anything, because you did plenty of things, they were all just complete shit in
+terms of productivity. Things that add betterment to your life aren’t about
+making you happy, they’re about hard work. And you consciously choose
+momentary happiness over the betterment of your life because you are
+fucking addicted to being happy. In short, fuck life in the long term so I can
+be happy in the moment, is what you do.</li>
+<li>I can’t say ‘no’ to people. Because of this, people often impose
+themselves on my wants and feelings and take advantage of my
+niceness.
+You can’t say ‘no’ because you can’t afford to make people unhappy. If they
+are unhappy with you, you are unhappy, and you want to be happy. You may
+tell others: I became unhappy because I didn’t get to do what I wanted, but
+the real story doesn’t stop there. What you don’t tell them is that the
+unhappiness vanishes the moment you see others being happy with you,
+despite the fact that you still didn’t get to do what you wanted. People being
+happy with you gives you so much pleasure that it feels like a much bigger
+reward than what you would feel if you stood up for yourself and said ‘no’.
+In short, because happiness is your priority, self-respect is ignored. And that
+is why, even though you complain to people about how unhappy it makes
+you, you keep repeating it, especially with people you desperately want to
+make happy. And you may do that at the cost of working overtime, sleeping
+less than planned, disrupting your own plans entirely, all because it gives you
+a great burst of pleasure for having ‘helped them’.</li>
+<li>I am a dumbass because I have no idea what I want to do, and
+others are doing so much better than me.
+You are unhappy because others are doing better than you, in which case you
+would be happy if you were doing better than others. At any point, the source
+of your happiness and unhappiness rests in comparison to others. The act of
+comparing yourself has its basis in nothing but simple observation. A
+comparison could be triggered from seeing anything and anybody. It could be
+as vague as comparing yourself to a celebrity, a person you have met for the
+first time, or a person you have only heard about from others. From that, you
+conclude: They are better than me. How fucking dumb is that?
+It is not a comparison of data as much as it is of your perception of
+them. It is you drowning in sorrow because you have assumed they have
+something that you don’t, and that something would make you happy. These
+assumptions exist only because you have no idea what would make your
+‘self’ happy.
+And because you don’t know that, the entire focus of your mind is on
+the outside, instead of looking inward for the answers. You are busy wanting
+what others have, learning what makes others happy, copying the lifestyles
+of others, coveting what you don’t have, and as a result developing a deep
+sense of disregard and ungratefulness towards what you do have.</li>
+<li>Life was so much fun back then, life was great. I wish we could
+go back and live like that forever!
+The thing is, you were the happiest at your stupidest self—when you were
+young, in college, school, with your friends. You were experimenting with
+rebellion against structure, engaging in activities that produced rewards (like
+gaming), entertainment (with friends) and pleasure (partying, dating, alcohol,
+weed, fun). What you don’t realise is that, at that time, you could afford that
+experimentation. There was no real structure. You were free of any
+responsibilities, duties and consequences. You were in a safe environment.
+Now, you are not. What worked then won’t work now because the rules,
+environment and your age have changed, but your want to be happy has not.
+This explains the confusion as to why the same degree of happiness is not
+reachable anymore; hence, you blame ‘growing up’ for it.
+If ‘growing up’ was the problem, then you are suggesting a life without
+responsibilities, duties and consequences is better, and that is called
+escapism. As a kid, your reality was structurally designed to keep you as free
+as possible, therefore those wants worked. That reality was manipulated, the
+current one is not. Ask any person whose life growing up was a continuous
+battle with tragedy, troubles and struggle if they wish to go back, and you
+will know the difference. Your responsibilities, duties and consequences pose
+as a problem to you because you are a grown-person with the wants of a
+clueless kid—to be happy all the time.</li>
+</ol>
+</div>
+<ol class="org-ol">
+<li><a id="orgba10815"></a>All of the above problems revolve around four things:<br />
+<div class="outline-text-5" id="text-8-2-1-1">
+<p>
+Making yourself happy.
+Making others happy to make yourself happy.
+Making yourself sad because others are presumably happy.
+Making yourself sad because you used to be happy.
+<b>Summary : You have to say, fuck happiness. I don’t want to be happy, I
+want to be satisfied in life. I want self-satisfaction.</b>
+</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div id="outline-container-orgb1607d2" class="outline-2">
+<h2 id="orgb1607d2"><span class="section-number-2">9</span> Choose Satisfaction, not happiness</h2>
+<div class="outline-text-2" id="text-9">
+<p>
+Fair argument on the outside, but what it lacks is choice. Manipulation
+tends to seriously fuck with your ability to make a rational choice.
+Manipulation feeds on weaknesses and vulnerabilities. Anything that is built
+on targeting your weakness and naivety, and making you its customer, is
+fucking vile because it doesn’t care about you at all. It doesn’t care about
+your age, maturity and personal development either. You are a user—that’s
+all it cares about.
+Most of our wants come from:
+</p>
+<ul class="org-ul">
+<li>Whatever society has made you believe is awesome (conditioning)</li>
+<li>whatever you see and have leaerned that others want ( following others )</li>
+<li>whatever appears to be exciting to you ( your impulse )</li>
+</ul>
+
+
+<p>
+Whatever your wants are, let&rsquo;s divide them into two categories: the first
+would be wants that contribute to long-term results; the second would be
+wants that bring you momentary happiness. Let&rsquo;s call the first category
+<b>value</b>, because they bring value to your life, and lets call the second
+<b>interest</b>, because they deal with your actual interests in life.
+</p>
+</div>
+<div id="outline-container-orgcd45e27" class="outline-3">
+<h3 id="orgcd45e27"><span class="section-number-3">9.1</span> Long-Term Happiness (Value)</h3>
+<div class="outline-text-3" id="text-9-1">
+<ol class="org-ol">
+<li>Stability
+they make you aware what you want from the day, what you don&rsquo;t want
+the help you get closer to peacefulness</li>
+<li>Cultivaiton
+doing things helps in cultivation of your mind. they give you reference
+points and clarity about &rsquo;self&rsquo;
+The point of cultivation is not storing knowledge in your mind so you
+can use it later to impress people. That might make you knowledgeable, not
+intelligent. It’s pointless if it doesn’t reflect in your actions. Cultivation of the
+mind means keeping what makes you think and applying what makes sense.</li>
+</ol>
+
+<p>
+Any of your wants that serve stability and cultivaiton majorly influence
+how you think in life, the choices you make and how you see things.
+</p>
+</div>
+</div>
+<div id="outline-container-org4d07cce" class="outline-3">
+<h3 id="org4d07cce"><span class="section-number-3">9.2</span> Short-Term Happiness (Insterest)</h3>
+</div>
+</div>
+<div id="outline-container-org49abae6" class="outline-2">
+<h2 id="org49abae6"><span class="section-number-2">10</span> Screw Pleasing People</h2>
+<div class="outline-text-2" id="text-10">
+</div>
+<div id="outline-container-org9501469" class="outline-3">
+<h3 id="org9501469"><span class="section-number-3">10.1</span> Do you care what others think about you ??</h3>
+<div class="outline-text-3" id="text-10-1">
+<p>
+Here’s the truth: nobody cares. Nobody cares unless they have a
+personal motive to care. You have rarely looked at how things are from the
+point of view of others. If you did, you’d realise that the people you want to
+impress can barely afford to think about you.
+However, important and powerful people do have the power of offering
+opportunities, which must be something you are interested in because of
+which you want to impress them. Here’s a simple rule: fuck whatever gossip
+goes around in their mind regarding you. Gossip gets discarded and replaced
+every day. Lasting impressions are formed by things they cannot ignore. So,
+impress with abilities, not appearance. Abilities cannot be ignored; if one
+person happens to do so, there are always going to be other takers.
+You have to understand, people may not care about you, but they do
+make observations. And their approval is nothing more than one of those
+many observations. They are not just sitting and thinking about you, but that
+observation does sit at the back of their head, with chances of making a
+connection with an opportunity. And opportunities as a reward are much
+better than appreciation.
+Appreciation gives you momentary pleasure. Opportunities get you
+somewhere in life. So apply common sense and tell me, which is better?
+You have to understand, people may not care about you, but they do
+make observations. And their approval is nothing more than one of those
+many observations. They are not just sitting and thinking about you, but that
+observation does sit at the back of their head, with chances of making a
+connection with an opportunity. And opportunities as a reward are much
+better than appreciation.
+Appreciation gives you momentary pleasure. Opportunities get you
+somewhere in life. So apply common sense and tell me, which is better?
+You are accumulating self-worth from the appreciation of others. That
+is the root of your problem. Not people who are better than you.
+</p>
+</div>
+</div>
+<div id="outline-container-orgcb0c2d8" class="outline-3">
+<h3 id="orgcb0c2d8"><span class="section-number-3">10.2</span> Do you rely on people for the motivation ??</h3>
+<div class="outline-text-3" id="text-10-2">
+<p>
+Think of the time you attended an event, seminar or conference related
+to your work or studies. There you met and talked to people who are experts
+in the field, who have superior skills and more success than you. It gave you
+immense exposure. While you were there, you felt and thought:
+</p>
+<ul class="org-ul">
+<li>I am going to be great in this too.</li>
+<li>Why wasn’t I working hard all this while? If I were, I would have been</li>
+</ul>
+<p>
+impressive too.
+Upon returning, you start planning as you experience a surge of inspiration
+growing in you, and you think about the things you have been wasting your
+time on. You start cursing, criticising and blaming them. You decide in the
+moment that you are going to be making changes now and become serious
+towards work.
+And in about ten days or so, you go back to doing what you were doing
+previously. The new-found motivation is gone. Do you know why that is?
+Well, at that event, three things happened:
+</p>
+<ul class="org-ul">
+<li>In that room, you saw versions of what you can become in terms of</li>
+</ul>
+<p>
+success and skills.
+</p>
+<ul class="org-ul">
+<li>Your self-worth took a severe beating as you weren’t the impressive</li>
+</ul>
+<p>
+somebody people wanted to talk to or talk about. You were an
+unknown who talked to impressive somebodies.
+</p>
+<ul class="org-ul">
+<li>You met with several people who are competent and awesome in</li>
+</ul>
+<p>
+everybody’s eyes in that room. Therefore, naturally, you wanted to be
+approved and accepted by them. One day they’re gonna know.
+Hence, the motivation was created by a) wanting success for yourself b)
+wanting success so you can show to others that you are worthy and c)
+wanting approval and acceptance of the successful people you met.
+Two-thirds of your fucking motivation came from the outside, only
+one-third from inside. When these others left your mind in ten days or so, so
+did two-thirds of your motivation, and you went back to doing the same
+things you used to before.
+And then you are sitting with your phone in your hand, wondering why
+you are not motivated anymore.
+As a result, you start glorifying these events in your mind, romanticising
+the people you met as though they were perfect beings, and blaming more
+strongly the people in your life as if they have tied your hands. It’s because of
+them I don’t work hard.
+Your problem is your motivation comes from the outside, and you have
+labelled outsiders as the ideal source for your motivation. If you want to be
+crazily motivated to do anything, a hundred per cent of the reasons to do that
+thing will have to come from the inside. Words like ‘others’ and ‘them’ will
+have to be replaced by ‘myself’. It should not be I wanna show them, but I
+wanna show myself; not I want to be great so they will be impressed, but I
+want to be great so I can be satisfied with myself. You have to keep this word
+in mind: myself. That’s who you are; that’s the one who gets affected; and
+that’s the one whose life it is.
+If you are relying on others, you are indirectly controlled by others. And
+others don’t give a shit about you.
+Now, how do we achieve this? Buckle up, my friend, we’re gonna take
+the word ‘myself’ up a few notches and create a new foundational principle:
+You are a nation. That’s how you will have to start seeing yourself from now
+on. You are a nation in yourself, and I am going to prove it to you.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org53cf5aa" class="outline-2">
+<h2 id="org53cf5aa"><span class="section-number-2">11</span> Screw you Heroes</h2>
+<div class="outline-text-2" id="text-11">
+</div>
+<div id="outline-container-org76e0d22" class="outline-3">
+<h3 id="org76e0d22"><span class="section-number-3">11.1</span> Heroes</h3>
+<div class="outline-text-3" id="text-11-1">
+<p>
+Well, these are the first type of people you need to detach yourself from in your mind if you want to be your own person.
+</p>
+</div>
+</div>
+<div id="outline-container-org798478c" class="outline-3">
+<h3 id="org798478c"><span class="section-number-3">11.2</span> Why do we love Heroes ?</h3>
+<div class="outline-text-3" id="text-11-2">
+<p>
+No wonder humans are generations of cattle led by wolves.
+</p>
+<ul class="org-ul">
+<li>Political issues: They are the bad guys, we are the good guys,
+vote for us because we will keep you safe from the bad guys.</li>
+<li>Personal opinions on people you meet: He looks like a good guy.
+It is actually the foundation of our first impressions—somebody is either good or bad</li>
+<li>Your perception of structures of power, fame and money: The government is bad.
+Scientists are good. People who work on Wall Street are bad. Teachers are good.
+Famous actors are good because they play nice people in movies and
+TV shows and because they support causes.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org1ede111" class="outline-3">
+<h3 id="org1ede111"><span class="section-number-3">11.3</span> A society that funtion on &rsquo;good&rsquo; and &rsquo;bad&rsquo; is dumb ?</h3>
+<div class="outline-text-3" id="text-11-3">
+<p>
+This means no matter how glamorous, impressive, commanding, rich, celebrated, famous and respected they are, they too have feelings and flaws just like you do.
+They too cry, bitch and moan like everybody else. They too struggle to
+do many things and face disappointments. They too have inner demons. They
+also wonder: what’s the point of everything ?
+</p>
+
+<p>
+All right, but what about our forefathers, freedom fighters, authors,
+scientists, inventors, philosophers, and great historical figures who paved the
+way for freedom, equality and justice for future generations? Those who
+annulled harmful practices, fought ignorance, prejudice and oppression? Are
+we to believe they were not great, perfect men and women? Are the pioneers
+of new-age inventions, technology and advancement not worthy of being
+followed as perfect examples? Even the ones who lead with principles of
+non-violence and total inclusiveness?
+</p>
+
+<p>
+And you cannot change and become who they are just because you
+would like to. It doesn’t work like that. You will remain who you are, so it’s
+better you get in touch with that and work on it. What you can do is take what
+you admire about them and try to bring that into your behaviour and thinking
+as well. You can try that with the help of self-control.
+</p>
+</div>
+</div>
+<div id="outline-container-org55f5d8a" class="outline-3">
+<h3 id="org55f5d8a"><span class="section-number-3">11.4</span> What it means to admire someone</h3>
+<div class="outline-text-3" id="text-11-4">
+<p>
+When somebody is your hero, you take on the mantle of being their follower.
+With that mantle now comes the responsibility of proving why they are
+worthy of being followed and defending them when somebody disagrees with
+you or attacks them. You might think, I don’t have to defend anybody, it’s my
+choice, I will follow whoever I want.
+That’s bullshit. The truth is that your choice to follow them now
+represents your intelligence. And failing to defend them makes you look like
+an idiot.
+</p>
+
+<p>
+You are a fan of their extraordinary acts and the products of their talents, not
+their lives. Learn to differentiate. What you have is a fascination for their
+lives. Without their achievements, you wouldn’t have even known their names.
+</p>
+
+<p>
+So, learn from everybody. Maybe that is why we label people as heroes—
+because we are flawed. We need heroes to believe in our hearts that we can
+be better, so there is hope for us too. Well, the fact that you want to be better
+is the hope. But for that, you don’t have to be like anybody, you already have
+your ‘self’. There is only one person who should give you approval,
+acceptance and self-worth, and that is you. You are a nation, my friend. Build
+a self-reliant one.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org2d5a87f" class="outline-2">
+<h2 id="org2d5a87f"><span class="section-number-2">12</span> The Pieces of shit Online</h2>
+<div class="outline-text-2" id="text-12">
+</div>
+<div id="outline-container-orgea40f5b" class="outline-3">
+<h3 id="orgea40f5b"><span class="section-number-3">12.1</span> THRUTH ABOUT SOCIAL MEDIA INFLUENCERS</h3>
+<div class="outline-text-3" id="text-12-1">
+<ul class="org-ul">
+<li>We live in a world where it has always been the norm to gather a
+following. This means that, throughout history, a few people have
+always tried to gain a following for themselves for several reasons: to
+acquire power, wealth, influence, popularity and control. All right?</li>
+<li>People by nature are aspirational beings. Aspirational content means selling you things that you don’t have but would like to have. We havethese wants as we live under the impression that these things will make us happy.
+The truth is, we think this way because we have no
+fucking idea what would make our ‘self’ happy. So we chase after
+bullshit ideas of happiness being sold to us by YouTubers and
+vloggers.</li>
+<li>Since you are shown only what they wnat you to see, you assume it is real. This is where you develop the why am i not like them syndrome.</li>
+</ul>
+
+<p>
+Therefore, the more honest a person, the more you admire them. The
+less honest a person, the more you follow them.
+</p>
+
+<p>
+Now, sometimes, these famous people shine a light on mental health
+issues and causes, which is great. They are powerful people, so their message
+has a huge audience. Whether they are doing it to build their public image or
+not, it doesn’t matter. It helps the issue.
+</p>
+
+<p>
+But when they talk about personal issues, like break-ups or hardships of
+any type, we lose our minds. If being aspirational didn’t have such a
+ridiculous market value, you would have known they go through exactly the
+same problems as you do, with the exception of money-related ones. You are
+surprised because your perception of them is they are perfect beings from
+outer space.
+</p>
+
+<p>
+Now, here’s something very interesting: An opposite reaction is created
+when the same people have private information leaked about them. They get
+involved in scandals, are found hiding money, cheating on their partners,
+mistreating people around them, or doing something that shatters that image
+of perfect beings.
+</p>
+
+<p>
+How many times
+are you going to fall for the same trick?
+It reveals the intensity of your emotional involvement in their personal
+life—about which you know absolutely nothing, but have assumed
+everything. Why don’t you ignore the persona they are selling and screw the
+assumptions your mind is creating, and only admire what made you notice
+them—entertainment, art, intelligence, skills. They are people. Their skill in a
+few things doesn’t preclude them from having flaws, desires, urges, as all
+people do. Screw the aspirational value, I wish I could be like them; they are
+</p>
+</div>
+</div>
+<div id="outline-container-org61b69db" class="outline-3">
+<h3 id="org61b69db"><span class="section-number-3">12.2</span> HOW TO SAVE YOURSELF FROM THIS BULLSHIT</h3>
+<div class="outline-text-3" id="text-12-2">
+<p>
+Here’s what you do whenever you feel like doing that: Admire, never
+follow. Nobody can discredit their acts of charity and positivity, but you have
+no idea who they are as a person—none—except what is in their control and
+power to sell.
+Let’s really compare the choices: perfect people or self
+</p>
+
+<p>
+which make you
+assume that these people are fucking superheroes. Just chill with the
+assumptions, mate. This whole game is just their advertising and our stupid
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgf7af2a0" class="outline-2">
+<h2 id="orgf7af2a0"><span class="section-number-2">13</span> How to Think</h2>
+<div class="outline-text-2" id="text-13">
+<p>
+who the fuck even is that guy! Don’t you care? Are
+you selfish? Please pretend it matters to you so I can share this clever
+opinion I’ve stolen from somebody and feel superior? Please debate me.
+</p>
+
+
+<p>
+All of the above teach you what to think. And this is how we appear
+competent in this world—none of which comes from ‘how to think’.
+</p>
+</div>
+</div>
+<div id="outline-container-orgb191243" class="outline-2">
+<h2 id="orgb191243"><span class="section-number-2">14</span> A Few Simple things to neve rforget</h2>
+<div class="outline-text-2" id="text-14">
+<p>
+Empowering and degrading yourself are two sides of the same coin.
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: AkashRaj</p>
+<p class="date">Created: 2021-07-21 Wed 23:16</p>
+</div>
+</body>
+</html>
