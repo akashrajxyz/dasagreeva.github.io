@@ -1,0 +1,1294 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-07-21 Wed 23:03 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Elisp</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="AkashRaj" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="https://blog.bugswriter.com/static/style.css"/>
+
+<script type="text/javascript" src="https://blog.bugswriter.com/static/org-info.js">
+// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
+// @license-end
+</script>
+
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
+<!--/*--><![CDATA[/*><!--*/
+org_html_manager.set("TOC_DEPTH", "1");
+org_html_manager.set("LINK_HOME", "");
+org_html_manager.set("LINK_UP", "");
+org_html_manager.set("LOCAL_TOC", "1");
+org_html_manager.set("VIEW_BUTTONS", "0");
+org_html_manager.set("MOUSE_HINT", "underline");
+org_html_manager.set("FIXED_TOC", "0");
+org_html_manager.set("TOC", "1");
+org_html_manager.set("VIEW", "info");
+org_html_manager.setup();  // activate after the parameters are set
+/*]]>*///-->
+// @license-end
+</script>
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Elisp</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org5786feb">1. Basics</a>
+<ul>
+<li><a href="#org52a75ad">1.1. (setq a 3 b 4 c 5)</a></li>
+<li><a href="#orgd36cfd5">1.2. if</a></li>
+<li><a href="#org7d0c738">1.3. when</a></li>
+<li><a href="#orgcc89c53">1.4. Loop</a></li>
+</ul>
+</li>
+<li><a href="#orgb80c6ac">2. Basics</a>
+<ul>
+<li><a href="#org8cb32c8">2.1. Elisp Basics</a></li>
+<li><a href="#org12b5732">2.2. ELisp Text-Processing overview</a>
+<ul>
+<li><a href="#orgf968653">2.2.1. Cursor Position</a></li>
+<li><a href="#orgdd6e3fc">2.2.2. Move Cursor, Search Text</a></li>
+<li><a href="#orgc8c5be9">2.2.3. Delete, insert, change, Text</a></li>
+<li><a href="#orgcd7db4d">2.2.4. String</a></li>
+<li><a href="#orgece3e88">2.2.5. Buffer</a></li>
+<li><a href="#org88114dc">2.2.6. File</a></li>
+<li><a href="#orgf3bcd0e">2.2.7. Simple Example</a></li>
+</ul>
+</li>
+<li><a href="#org3899158">2.3. Elisp Examples</a>
+<ul>
+<li><a href="#org5b958e5">2.3.1. Insert Text</a></li>
+<li><a href="#org47ae068">2.3.2. insert around region</a></li>
+<li><a href="#org0798fd7">2.3.3. Select current Word</a></li>
+<li><a href="#orgb8132d0">2.3.4. Select Current Line</a></li>
+<li><a href="#org4376694">2.3.5. Find Replace String in Region</a></li>
+<li><a href="#org9deaf70">2.3.6. delete enclosed text</a></li>
+</ul>
+</li>
+<li><a href="#orgb682ed3">2.4. Delete Linebreaks</a>
+<ul>
+<li><a href="#org7f96d00">2.4.1. Random Number</a></li>
+<li><a href="#org5873abe">2.4.2. Reference LookUP</a></li>
+<li><a href="#orgd745e30">2.4.3. Change Newline Character</a></li>
+<li><a href="#org47b0ffc">2.4.4. Delete Currente File</a></li>
+<li><a href="#orgc967d6e">2.4.5. Insert Vertical Column of Numbers</a></li>
+</ul>
+</li>
+<li><a href="#org215d392">2.5. Evaluate Elisp Code</a></li>
+<li><a href="#org7b75aa8">2.6. Doc lookUp</a>
+<ul>
+<li><a href="#org8eddb24">2.6.1. LookUp Function Doc String</a></li>
+</ul>
+</li>
+<li><a href="#org82b69cc">2.7. Search Doc</a></li>
+</ul>
+</li>
+<li><a href="#org65b9a74">3. Basic Funtions</a>
+<ul>
+<li><a href="#orge317739">3.1. Get Cursor Position</a></li>
+<li><a href="#org891b98c">3.2. Text Editing</a></li>
+<li><a href="#orgc33ac62">3.3. String Functions</a></li>
+<li><a href="#orgf5c74c6">3.4. Buffer</a>
+<ul>
+<li><a href="#org11969dc">3.4.1. Switch Buffer</a></li>
+<li><a href="#org7c4c528">3.4.2. Create Buffer</a></li>
+</ul>
+</li>
+<li><a href="#org3345602">3.5. File</a>
+<ul>
+<li><a href="#orgab26260">3.5.1. Open File</a></li>
+<li><a href="#org1fa1403">3.5.2. wrtie file</a></li>
+<li><a href="#org8d45851">3.5.3. Append File</a></li>
+<li><a href="#org7e47862">3.5.4. Close File</a></li>
+<li><a href="#orgd119ab6">3.5.5. Create New File</a></li>
+<li><a href="#org7d5e826">3.5.6. with-temp-file</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgdf834c0">4. File/Dir Path</a>
+<ul>
+<li>
+<ul>
+<li><a href="#orgc487c0b">4.0.1. Function on File</a></li>
+<li><a href="#org6b74a86">4.0.2. Functions on Directory</a></li>
+<li><a href="#orge39536b">4.0.3. File Path Functions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="org-src-container">
+<pre class="src src-emacs-lisp"><span style="color: #51afef;">(</span><span style="color: #c678dd;">file-name-extension</span> <span style="color: #99bb66;">"tring.org"</span><span style="color: #51afef;">)</span>
+</pre>
+</div>
+
+<div id="outline-container-org5786feb" class="outline-2">
+<h2 id="org5786feb"><span class="section-number-2">1</span> Basics</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+true ===&gt; t, 0, &ldquo;&rdquo;, []
+false ===&gt; nil, (), (empty), &rsquo;()
+and , or
+/= not equal
+</p>
+
+
+<p>
+string comaprision
+(string-equal &ldquo;abc&rdquo; &ldquo;abc&rdquo;)
+(not (string-equal &ldquo;abc&rdquo; &ldquo;abc&rdquo;)))
+</p>
+</div>
+
+
+<div id="outline-container-org52a75ad" class="outline-3">
+<h3 id="org52a75ad"><span class="section-number-3">1.1</span> (setq a 3 b 4 c 5)</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+(let (a,b)
+(setq a 3)
+(setq b 4)
+(+ a b)
+) ; last statemet return of local variable
+</p>
+</div>
+</div>
+<div id="outline-container-orgd36cfd5" class="outline-3">
+<h3 id="orgd36cfd5"><span class="section-number-3">1.2</span> if</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+(if (&lt; 3 2) 5 6) ;  6
+</p>
+</div>
+</div>
+<div id="outline-container-org7d0c738" class="outline-3">
+<h3 id="org7d0c738"><span class="section-number-3">1.3</span> when</h3>
+<div class="outline-text-3" id="text-1-3">
+<p>
+(when test expr1 expr2 …)
+(if test progn ( exp1 exp2))
+progn return last state ment in his body ( progn = {} )
+</p>
+</div>
+</div>
+<div id="outline-container-orgcc89c53" class="outline-3">
+<h3 id="orgcc89c53"><span class="section-number-3">1.4</span> Loop</h3>
+<div class="outline-text-3" id="text-1-4">
+<p>
+(setq x 0)
+</p>
+
+<p>
+(while (&lt; x 4)
+  (print (format &ldquo;number is %d&rdquo; x))
+  (setq x (1+ x)))
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgb80c6ac" class="outline-2">
+<h2 id="orgb80c6ac"><span class="section-number-2">2</span> Basics</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org8cb32c8" class="outline-3">
+<h3 id="org8cb32c8"><span class="section-number-3">2.1</span> Elisp Basics</h3>
+<div class="outline-text-3" id="text-2-1">
+</div>
+<ol class="org-ol">
+<li><a id="orga16ef02"></a>printing<br />
+<div class="outline-text-5" id="text-2-1-0-1">
+<div class="org-src-container">
+<pre class="src src-emacs-lisp"><span style="color: #525252;">; </span><span style="color: #525252;">printing</span>
+<span style="color: #51afef;">(</span><span style="color: #a9a1e1;">message</span> <span style="color: #99bb66;">"hi"</span><span style="color: #51afef;">)</span>
+
+<span style="color: #525252;">; </span><span style="color: #525252;">printing variable values</span>
+<span style="color: #51afef;">(</span><span style="color: #a9a1e1;">message</span> <span style="color: #99bb66;">"Her age is: %d"</span> <span style="color: #dd8844; font-weight: bold;">16</span><span style="color: #51afef;">)</span>        <span style="color: #525252;">; </span><span style="color: #525252;">%d is for number</span>
+<span style="color: #51afef;">(</span><span style="color: #a9a1e1;">message</span> <span style="color: #99bb66;">"Her name is: %s"</span> <span style="color: #99bb66;">"Vicky"</span><span style="color: #51afef;">)</span>  <span style="color: #525252;">; </span><span style="color: #525252;">%s is for string</span>
+<span style="color: #51afef;">(</span><span style="color: #a9a1e1;">message</span> <span style="color: #99bb66;">"My list is: %S"</span> <span style="color: #c678dd;">(</span><span style="color: #a9a1e1;">list</span> <span style="color: #dd8844; font-weight: bold;">8</span> <span style="color: #dd8844; font-weight: bold;">2</span> <span style="color: #dd8844; font-weight: bold;">3</span><span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>  <span style="color: #525252;">; </span><span style="color: #525252;">%S is for any lisp expression</span>
+</pre>
+</div>
+</div>
+</li>
+<li><a id="org8116256"></a>Convert Float/Integer<br />
+<div class="outline-text-5" id="text-2-1-0-2">
+<div class="org-src-container">
+<pre class="src src-emacs-lisp"><span style="color: #525252;">;; </span><span style="color: #525252;">int to float</span>
+<span style="color: #51afef;">(</span><span style="color: #a9a1e1;">float</span> <span style="color: #dd8844; font-weight: bold;">3</span><span style="color: #51afef;">)</span> <span style="color: #525252;">; </span><span style="color: #525252;">3.0</span>
+
+<span style="color: #51afef;">(</span><span style="color: #a9a1e1;">truncate</span> <span style="color: #dd8844; font-weight: bold;">3.3</span><span style="color: #51afef;">)</span> <span style="color: #525252;">; </span><span style="color: #525252;">3</span>
+
+<span style="color: #51afef;">(</span><span style="color: #a9a1e1;">floor</span> <span style="color: #dd8844; font-weight: bold;">3.3</span><span style="color: #51afef;">)</span> <span style="color: #525252;">; </span><span style="color: #525252;">3</span>
+
+<span style="color: #51afef;">(</span><span style="color: #a9a1e1;">ceiling</span> <span style="color: #dd8844; font-weight: bold;">3.3</span><span style="color: #51afef;">)</span> <span style="color: #525252;">; </span><span style="color: #525252;">4</span>
+
+<span style="color: #51afef;">(</span><span style="color: #a9a1e1;">round</span> <span style="color: #dd8844; font-weight: bold;">3.4</span><span style="color: #51afef;">)</span> <span style="color: #525252;">; </span><span style="color: #525252;">3</span>
+
+</pre>
+</div>
+</div>
+</li>
+<li><a id="orgf9583db"></a>True/False<br />
+<div class="outline-text-5" id="text-2-1-0-3">
+<div class="org-src-container">
+<pre class="src src-emacs-lisp"><span style="color: #525252;">;; </span><span style="color: #525252;">all the following are false. They all evaluate to nil</span>
+<span style="color: #51afef;">(</span><span style="color: #51afef;">if</span> nil <span style="color: #99bb66;">"yes"</span> <span style="color: #99bb66;">"no"</span><span style="color: #51afef;">)</span> <span style="color: #525252;">;  </span><span style="color: #525252;">"no"</span>
+<span style="color: #51afef;">(</span><span style="color: #51afef;">if</span> <span style="color: #c678dd;">()</span> <span style="color: #99bb66;">"yes"</span> <span style="color: #99bb66;">"no"</span><span style="color: #51afef;">)</span> <span style="color: #525252;">;  </span><span style="color: #525252;">"no"</span>
+<span style="color: #51afef;">(</span><span style="color: #51afef;">if</span> <span style="color: #51afef;">'</span><span style="color: #c678dd;">()</span> <span style="color: #99bb66;">"yes"</span> <span style="color: #99bb66;">"no"</span><span style="color: #51afef;">)</span> <span style="color: #525252;">;  </span><span style="color: #525252;">"no"</span>
+<span style="color: #51afef;">(</span><span style="color: #51afef;">if</span> <span style="color: #c678dd;">(</span><span style="color: #a9a1e1;">list</span><span style="color: #c678dd;">)</span> <span style="color: #99bb66;">"yes"</span> <span style="color: #99bb66;">"no"</span><span style="color: #51afef;">)</span> <span style="color: #525252;">;  </span><span style="color: #525252;">"no", because (list) eval to a empty list, same as ()</span>
+
+
+
+
+<span style="color: #51afef;">(</span><span style="color: #51afef;">if</span> t <span style="color: #99bb66;">"yes"</span> <span style="color: #99bb66;">"no"</span><span style="color: #51afef;">)</span> <span style="color: #525252;">;  </span><span style="color: #525252;">"yes"</span>
+<span style="color: #51afef;">(</span><span style="color: #51afef;">if</span> <span style="color: #dd8844; font-weight: bold;">0</span> <span style="color: #99bb66;">"yes"</span> <span style="color: #99bb66;">"no"</span><span style="color: #51afef;">)</span> <span style="color: #525252;">;  </span><span style="color: #525252;">"yes"</span>
+<span style="color: #51afef;">(</span><span style="color: #51afef;">if</span> <span style="color: #99bb66;">""</span> <span style="color: #99bb66;">"yes"</span> <span style="color: #99bb66;">"no"</span><span style="color: #51afef;">)</span> <span style="color: #525252;">;  </span><span style="color: #525252;">"yes"</span>
+<span style="color: #51afef;">(</span><span style="color: #51afef;">if</span> <span style="color: #c678dd;">[]</span> <span style="color: #99bb66;">"yes"</span> <span style="color: #99bb66;">"no"</span><span style="color: #51afef;">)</span> <span style="color: #525252;">;  </span><span style="color: #525252;">"yes". The [] is vector of 0 elements</span>
+</pre>
+</div>
+</div>
+</li>
+<li><a id="org9739730"></a>Boolean Functions<br />
+<div class="outline-text-5" id="text-2-1-0-4">
+<div class="org-src-container">
+<pre class="src src-emacs-lisp"><span style="color: #51afef;">(</span><span style="color: #51afef;">and</span> t nil<span style="color: #51afef;">)</span> <span style="color: #525252;">; </span><span style="color: #525252;">nil</span>
+<span style="color: #51afef;">(</span><span style="color: #51afef;">or</span> t nil<span style="color: #51afef;">)</span> <span style="color: #525252;">; </span><span style="color: #525252;">t</span>
+<span style="color: #51afef;">(</span><span style="color: #51afef;">and</span> t nil t t t t<span style="color: #51afef;">)</span> <span style="color: #525252;">; </span><span style="color: #525252;">nil</span>
+<span style="color: #525252;">;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span><span style="color: #525252;">Comapiring number</span>
+<span style="color: #51afef;">(</span><span style="color: #a9a1e1;">&lt;</span> <span style="color: #dd8844; font-weight: bold;">3</span> <span style="color: #dd8844; font-weight: bold;">4</span><span style="color: #51afef;">)</span> <span style="color: #525252;">; </span><span style="color: #525252;">less than</span>
+<span style="color: #51afef;">(</span><span style="color: #a9a1e1;">&gt;</span> <span style="color: #dd8844; font-weight: bold;">3</span> <span style="color: #dd8844; font-weight: bold;">4</span><span style="color: #51afef;">)</span> <span style="color: #525252;">; </span><span style="color: #525252;">greater than</span>
+
+<span style="color: #51afef;">(</span><span style="color: #a9a1e1;">&lt;=</span> <span style="color: #dd8844; font-weight: bold;">3</span> <span style="color: #dd8844; font-weight: bold;">4</span><span style="color: #51afef;">)</span> <span style="color: #525252;">; </span><span style="color: #525252;">less or equal to</span>
+<span style="color: #51afef;">(</span><span style="color: #a9a1e1;">&gt;=</span> <span style="color: #dd8844; font-weight: bold;">3</span> <span style="color: #dd8844; font-weight: bold;">4</span><span style="color: #51afef;">)</span> <span style="color: #525252;">; </span><span style="color: #525252;">greater or equal to</span>
+
+<span style="color: #51afef;">(</span><span style="color: #a9a1e1;">=</span> <span style="color: #dd8844; font-weight: bold;">3</span> <span style="color: #dd8844; font-weight: bold;">3</span><span style="color: #51afef;">)</span>   <span style="color: #525252;">;  </span><span style="color: #525252;">t</span>
+<span style="color: #51afef;">(</span><span style="color: #a9a1e1;">=</span> <span style="color: #dd8844; font-weight: bold;">3</span> <span style="color: #dd8844; font-weight: bold;">3.00000000000000001</span><span style="color: #51afef;">)</span> <span style="color: #525252;">;  </span><span style="color: #525252;">t</span>
+
+<span style="color: #51afef;">(</span><span style="color: #a9a1e1;">/=</span> <span style="color: #dd8844; font-weight: bold;">3</span> <span style="color: #dd8844; font-weight: bold;">4</span><span style="color: #51afef;">)</span> <span style="color: #525252;">; </span><span style="color: #525252;">not equal. &#8658; t</span>
+<span style="color: #525252;">;;;;;;;;;;;;;;;;;;;;</span><span style="color: #525252;">String</span>
+<span style="color: #525252;">;; </span><span style="color: #525252;">compare string</span>
+<span style="color: #51afef;">(</span><span style="color: #a9a1e1;">equal</span> <span style="color: #99bb66;">"abc"</span> <span style="color: #99bb66;">"abc"</span><span style="color: #51afef;">)</span> <span style="color: #525252;">;  </span><span style="color: #525252;">t</span>
+
+<span style="color: #525252;">;; </span><span style="color: #525252;">dedicated function for comparing string</span>
+<span style="color: #51afef;">(</span><span style="color: #a9a1e1;">string-equal</span> <span style="color: #99bb66;">"abc"</span> <span style="color: #99bb66;">"abc"</span><span style="color: #51afef;">)</span> <span style="color: #525252;">;  </span><span style="color: #525252;">t</span>
+
+<span style="color: #51afef;">(</span><span style="color: #a9a1e1;">string-equal</span> <span style="color: #99bb66;">"abc"</span> <span style="color: #99bb66;">"Abc"</span><span style="color: #51afef;">)</span> <span style="color: #525252;">;  </span><span style="color: #525252;">nil. Case matters</span>
+
+<span style="color: #525252;">;; </span><span style="color: #525252;">can be used to compare string and symbol</span>
+<span style="color: #51afef;">(</span><span style="color: #a9a1e1;">string-equal</span> <span style="color: #99bb66;">"abc"</span> <span style="color: #51afef;">'</span><span style="color: #ECBE7B;">abc</span><span style="color: #51afef;">)</span> <span style="color: #525252;">;  </span><span style="color: #525252;">t</span>
+<span style="color: #525252;">;;;;;;;;;;;;;;;;; </span><span style="color: #525252;">Equal</span>
+<span style="color: #525252;">;; </span><span style="color: #525252;">test if two values have the same datatype and value.</span>
+
+<span style="color: #51afef;">(</span><span style="color: #a9a1e1;">equal</span> <span style="color: #dd8844; font-weight: bold;">3</span> <span style="color: #dd8844; font-weight: bold;">3</span><span style="color: #51afef;">)</span> <span style="color: #525252;">;  </span><span style="color: #525252;">t</span>
+<span style="color: #51afef;">(</span><span style="color: #a9a1e1;">equal</span> <span style="color: #dd8844; font-weight: bold;">3.0</span> <span style="color: #dd8844; font-weight: bold;">3.0</span><span style="color: #51afef;">)</span> <span style="color: #525252;">;  </span><span style="color: #525252;">t</span>
+
+<span style="color: #51afef;">(</span><span style="color: #a9a1e1;">equal</span> <span style="color: #dd8844; font-weight: bold;">3</span> <span style="color: #dd8844; font-weight: bold;">3.0</span><span style="color: #51afef;">)</span> <span style="color: #525252;">;  </span><span style="color: #525252;">nil. Because datatype doesn't match.</span>
+
+<span style="color: #525252;">;; </span><span style="color: #525252;">test equality of lists</span>
+<span style="color: #51afef;">(</span><span style="color: #a9a1e1;">equal</span> <span style="color: #51afef;">'</span><span style="color: #c678dd;">(</span><span style="color: #dd8844; font-weight: bold;">3</span> <span style="color: #dd8844; font-weight: bold;">4</span> <span style="color: #dd8844; font-weight: bold;">5</span><span style="color: #c678dd;">)</span> <span style="color: #51afef;">'</span><span style="color: #c678dd;">(</span><span style="color: #dd8844; font-weight: bold;">3</span> <span style="color: #dd8844; font-weight: bold;">4</span> <span style="color: #dd8844; font-weight: bold;">5</span><span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>  <span style="color: #525252;">;  </span><span style="color: #525252;">t</span>
+<span style="color: #51afef;">(</span><span style="color: #a9a1e1;">equal</span> <span style="color: #51afef;">'</span><span style="color: #c678dd;">(</span><span style="color: #dd8844; font-weight: bold;">3</span> <span style="color: #dd8844; font-weight: bold;">4</span> <span style="color: #dd8844; font-weight: bold;">5</span><span style="color: #c678dd;">)</span> <span style="color: #51afef;">'</span><span style="color: #c678dd;">(</span><span style="color: #dd8844; font-weight: bold;">3</span> <span style="color: #dd8844; font-weight: bold;">4</span> <span style="color: #99bb66;">"5"</span><span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span> <span style="color: #525252;">;  </span><span style="color: #525252;">nil</span>
+
+<span style="color: #525252;">;; </span><span style="color: #525252;">test equality of strings</span>
+<span style="color: #51afef;">(</span><span style="color: #a9a1e1;">equal</span> <span style="color: #99bb66;">"e"</span> <span style="color: #99bb66;">"e"</span><span style="color: #51afef;">)</span> <span style="color: #525252;">;  </span><span style="color: #525252;">t</span>
+
+<span style="color: #525252;">;; </span><span style="color: #525252;">test equality of symbols</span>
+<span style="color: #51afef;">(</span><span style="color: #a9a1e1;">equal</span> <span style="color: #51afef;">'</span><span style="color: #ECBE7B;">abc</span> <span style="color: #51afef;">'</span><span style="color: #ECBE7B;">abc</span><span style="color: #51afef;">)</span> <span style="color: #525252;">;  </span><span style="color: #525252;">t</span>
+<span style="color: #525252;">;;;;;;;;;;;;;;;;;;</span>
+
+<span style="color: #51afef;">(</span><span style="color: #a9a1e1;">not</span> <span style="color: #c678dd;">(</span><span style="color: #a9a1e1;">=</span> <span style="color: #dd8844; font-weight: bold;">3</span> <span style="color: #dd8844; font-weight: bold;">4</span><span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span> <span style="color: #525252;">;  </span><span style="color: #525252;">t</span>
+<span style="color: #51afef;">(</span><span style="color: #a9a1e1;">/=</span> <span style="color: #dd8844; font-weight: bold;">3</span> <span style="color: #dd8844; font-weight: bold;">4</span><span style="color: #51afef;">)</span> <span style="color: #525252;">;  </span><span style="color: #525252;">t. &#8220;/=&#8221; is for comparing numbers only</span>
+
+<span style="color: #51afef;">(</span><span style="color: #a9a1e1;">not</span> <span style="color: #c678dd;">(</span><span style="color: #a9a1e1;">equal</span> <span style="color: #dd8844; font-weight: bold;">3</span> <span style="color: #dd8844; font-weight: bold;">4</span><span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span> <span style="color: #525252;">;  </span><span style="color: #525252;">t. General way to test inequality.</span>
+
+
+<span style="color: #51afef;">(</span><span style="color: #51afef;">setq</span> x <span style="color: #dd8844; font-weight: bold;">1</span><span style="color: #51afef;">)</span> <span style="color: #525252;">; </span><span style="color: #525252;">assign 1 to x</span>
+<span style="color: #51afef;">(</span><span style="color: #51afef;">setq</span> a <span style="color: #dd8844; font-weight: bold;">3</span> b <span style="color: #dd8844; font-weight: bold;">2</span> c <span style="color: #dd8844; font-weight: bold;">7</span><span style="color: #51afef;">)</span> <span style="color: #525252;">; </span><span style="color: #525252;">multiple assignment</span>
+
+<span style="color: #51afef;">(</span><span style="color: #51afef;">let</span> <span style="color: #c678dd;">(</span>a b<span style="color: #c678dd;">)</span>
+ <span style="color: #c678dd;">(</span><span style="color: #51afef;">setq</span> a <span style="color: #dd8844; font-weight: bold;">3</span><span style="color: #c678dd;">)</span>
+ <span style="color: #c678dd;">(</span><span style="color: #51afef;">setq</span> b <span style="color: #dd8844; font-weight: bold;">4</span><span style="color: #c678dd;">)</span>
+ <span style="color: #c678dd;">(</span><span style="color: #a9a1e1;">+</span> a b<span style="color: #c678dd;">)</span>
+<span style="color: #51afef;">)</span> <span style="color: #525252;">;  </span><span style="color: #525252;">7</span>
+
+<span style="color: #51afef;">(</span><span style="color: #51afef;">let</span> <span style="color: #c678dd;">(</span><span style="color: #99bb66;">(</span>a <span style="color: #dd8844; font-weight: bold;">3</span><span style="color: #99bb66;">)</span> <span style="color: #99bb66;">(</span>b <span style="color: #dd8844; font-weight: bold;">4</span><span style="color: #99bb66;">)</span><span style="color: #c678dd;">)</span>
+ <span style="color: #c678dd;">(</span><span style="color: #a9a1e1;">+</span> a b<span style="color: #c678dd;">)</span>
+<span style="color: #51afef;">)</span> <span style="color: #525252;">;  </span><span style="color: #525252;">7</span>
+
+</pre>
+</div>
+</div>
+</li>
+<li><a id="org023ac2b"></a>if then else<br />
+<div class="outline-text-5" id="text-2-1-0-5">
+<div class="org-src-container">
+<pre class="src src-emacs-lisp"><span style="color: #51afef;">(</span><span style="color: #51afef;">if</span> <span style="color: #c678dd;">(</span><span style="color: #a9a1e1;">&lt;</span> <span style="color: #dd8844; font-weight: bold;">3</span> <span style="color: #dd8844; font-weight: bold;">2</span><span style="color: #c678dd;">)</span> <span style="color: #dd8844; font-weight: bold;">7</span> <span style="color: #dd8844; font-weight: bold;">8</span> <span style="color: #51afef;">)</span> <span style="color: #525252;">; </span><span style="color: #525252;">8</span>
+
+<span style="color: #525252;">;; </span><span style="color: #525252;">no false expression, return nil</span>
+<span style="color: #51afef;">(</span><span style="color: #51afef;">if</span> <span style="color: #c678dd;">(</span><span style="color: #a9a1e1;">&lt;</span> <span style="color: #dd8844; font-weight: bold;">3</span> <span style="color: #dd8844; font-weight: bold;">2</span><span style="color: #c678dd;">)</span> <span style="color: #c678dd;">(</span><span style="color: #a9a1e1;">message</span> <span style="color: #99bb66;">"yes"</span><span style="color: #c678dd;">)</span> <span style="color: #51afef;">)</span> <span style="color: #525252;">; </span><span style="color: #525252;">nil</span>
+<span style="color: #525252;">;;;;;; </span><span style="color: #525252;">(when test exp1 exp2)</span>
+<span style="color: #525252;">;;;; </span><span style="color: #525252;">(if test (progn  expr1 expr2))</span>
+
+</pre>
+</div>
+</div>
+</li>
+<li><a id="org6400c36"></a>Loop<br />
+<div class="outline-text-5" id="text-2-1-0-6">
+<div class="org-src-container">
+<pre class="src src-emacs-lisp"><span style="color: #51afef;">(</span><span style="color: #51afef;">setq</span> x <span style="color: #dd8844; font-weight: bold;">0</span><span style="color: #51afef;">)</span>
+
+<span style="color: #51afef;">(</span><span style="color: #51afef;">while</span> <span style="color: #c678dd;">(</span><span style="color: #a9a1e1;">&lt;</span> x <span style="color: #dd8844; font-weight: bold;">4</span><span style="color: #c678dd;">)</span>
+  <span style="color: #c678dd;">(</span><span style="color: #a9a1e1;">print</span> <span style="color: #99bb66;">(</span><span style="color: #a9a1e1;">format</span> <span style="color: #99bb66;">"number is %d"</span> x<span style="color: #99bb66;">)</span><span style="color: #c678dd;">)</span>
+  <span style="color: #c678dd;">(</span><span style="color: #51afef;">setq</span> x <span style="color: #99bb66;">(</span><span style="color: #a9a1e1;">1+</span> x<span style="color: #99bb66;">)</span><span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>
+
+</pre>
+</div>
+</div>
+</li>
+
+<li><a id="orga7bd4f0"></a>Define a function<br />
+<div class="outline-text-5" id="text-2-1-0-7">
+<div class="org-src-container">
+<pre class="src src-emacs-lisp"><span style="color: #51afef;">(</span><span style="color: #51afef;">defun</span> <span style="color: #c678dd;">myFuntion</span> <span style="color: #c678dd;">()</span>
+<span style="color: #7d7d7d;">"testing"</span>
+<span style="color: #c678dd;">(</span><span style="color: #a9a1e1;">message</span> <span style="color: #51afef;">'</span><span style="color: #ECBE7B;">yay!@</span><span style="color: #51afef;">'</span><span style="color: #c678dd;">)</span>
+<span style="color: #525252;">;;;;;; </span><span style="color: #525252;">Eval Expression C-x C-e</span>
+<span style="color: #525252;">;;;;;;;;;;;;;;;;;;;; </span><span style="color: #525252;">execute C-c C-c</span>
+
+</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div id="outline-container-org12b5732" class="outline-3">
+<h3 id="org12b5732"><span class="section-number-3">2.2</span> ELisp Text-Processing overview</h3>
+<div class="outline-text-3" id="text-2-2">
+</div>
+<div id="outline-container-orgf968653" class="outline-4">
+<h4 id="orgf968653"><span class="section-number-4">2.2.1</span> Cursor Position</h4>
+<div class="outline-text-4" id="text-2-2-1">
+<div class="org-src-container">
+<pre class="src src-emacs-lisp"><span style="color: #525252;">;; </span><span style="color: #525252;">current cursor position is called &#8220;point&#8221;.</span>
+<span style="color: #525252;">;; </span><span style="color: #525252;">Left of first char in buffer is 1</span>
+<span style="color: #525252;">;; </span><span style="color: #525252;">This returns the current cursor position</span>
+<span style="color: #51afef;">(</span><span style="color: #a9a1e1;">point</span><span style="color: #51afef;">)</span>
+
+<span style="color: #525252;">;; </span><span style="color: #525252;">returns the position of the beginning/end of region (selection)</span>
+<span style="color: #51afef;">(</span><span style="color: #a9a1e1;">region-beginning</span><span style="color: #51afef;">)</span>
+<span style="color: #51afef;">(</span><span style="color: #a9a1e1;">region-end</span><span style="color: #51afef;">)</span>
+
+<span style="color: #525252;">;; </span><span style="color: #525252;">position for beginning/ending of current line</span>
+<span style="color: #51afef;">(</span><span style="color: #a9a1e1;">line-beginning-position</span><span style="color: #51afef;">)</span>
+<span style="color: #51afef;">(</span><span style="color: #a9a1e1;">line-end-position</span><span style="color: #51afef;">)</span>
+
+<span style="color: #525252;">;; </span><span style="color: #525252;">returns the position for the beginning/end of buffer, taking account of narrow-to-region</span>
+<span style="color: #51afef;">(</span><span style="color: #a9a1e1;">point-min</span><span style="color: #51afef;">)</span>
+<span style="color: #51afef;">(</span><span style="color: #a9a1e1;">point-max</span><span style="color: #51afef;">)</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgdd6e3fc" class="outline-4">
+<h4 id="orgdd6e3fc"><span class="section-number-4">2.2.2</span> Move Cursor, Search Text</h4>
+<div class="outline-text-4" id="text-2-2-2">
+<div class="org-src-container">
+<pre class="src src-emacs-lisp"><span style="color: #525252;">;; </span><span style="color: #525252;">move cursor to position 39</span>
+<span style="color: #51afef;">(</span><span style="color: #a9a1e1;">goto-char</span> <span style="color: #dd8844; font-weight: bold;">39</span><span style="color: #51afef;">)</span>
+
+<span style="color: #525252;">;; </span><span style="color: #525252;">move cursor by 4 chars</span>
+<span style="color: #51afef;">(</span><span style="color: #a9a1e1;">forward-char</span> <span style="color: #dd8844; font-weight: bold;">4</span><span style="color: #51afef;">)</span>
+<span style="color: #51afef;">(</span><span style="color: #a9a1e1;">backward-char</span> <span style="color: #dd8844; font-weight: bold;">4</span><span style="color: #51afef;">)</span>
+
+<span style="color: #525252;">;; </span><span style="color: #525252;">move cursor to the location of a string</span>
+<span style="color: #525252;">;; </span><span style="color: #525252;">returns the new position</span>
+<span style="color: #51afef;">(</span><span style="color: #a9a1e1;">search-forward</span> <span style="color: #99bb66;">"some"</span><span style="color: #51afef;">)</span> <span style="color: #525252;">; </span><span style="color: #525252;">to end of &#8220;some&#8221;</span>
+<span style="color: #51afef;">(</span><span style="color: #a9a1e1;">search-backward</span> <span style="color: #99bb66;">"some"</span><span style="color: #51afef;">)</span> <span style="color: #525252;">; </span><span style="color: #525252;">to beginning of &#8220;some&#8221;</span>
+
+<span style="color: #525252;">;; </span><span style="color: #525252;">move cursor to the location matched by a regex</span>
+<span style="color: #525252;">;; </span><span style="color: #525252;">returns the new position</span>
+<span style="color: #51afef;">(</span><span style="color: #a9a1e1;">re-search-forward</span> <span style="color: #99bb66;">"[0-9]"</span><span style="color: #51afef;">)</span> <span style="color: #525252;">; </span><span style="color: #525252;">digit</span>
+<span style="color: #51afef;">(</span><span style="color: #a9a1e1;">re-search-backward</span> <span style="color: #99bb66;">"[0-9]"</span><span style="color: #51afef;">)</span>
+
+<span style="color: #525252;">;; </span><span style="color: #525252;">move cursor to the first char that's not &#8220;a to z&#8221;</span>
+<span style="color: #525252;">;; </span><span style="color: #525252;">Returns the distance traveled.</span>
+<span style="color: #51afef;">(</span><span style="color: #a9a1e1;">skip-chars-forward</span> <span style="color: #99bb66;">"a-z"</span><span style="color: #51afef;">)</span>
+<span style="color: #51afef;">(</span><span style="color: #a9a1e1;">skip-chars-backward</span> <span style="color: #99bb66;">"a-z"</span><span style="color: #51afef;">)</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgc8c5be9" class="outline-4">
+<h4 id="orgc8c5be9"><span class="section-number-4">2.2.3</span> Delete, insert, change, Text</h4>
+<div class="outline-text-4" id="text-2-2-3">
+<div class="org-src-container">
+<pre class="src src-emacs-lisp"><span style="color: #525252;">;; </span><span style="color: #525252;">delete 9 chars starting at current cursor pos</span>
+<span style="color: #51afef;">(</span><span style="color: #a9a1e1;">delete-char</span> <span style="color: #dd8844; font-weight: bold;">9</span><span style="color: #51afef;">)</span>
+
+<span style="color: #525252;">;; </span><span style="color: #525252;">deleting text from pos 3 to 10</span>
+<span style="color: #51afef;">(</span><span style="color: #a9a1e1;">delete-region</span> <span style="color: #dd8844; font-weight: bold;">3</span> <span style="color: #dd8844; font-weight: bold;">10</span><span style="color: #51afef;">)</span>
+
+<span style="color: #525252;">;; </span><span style="color: #525252;">insert string at current cursor position</span>
+<span style="color: #51afef;">(</span><span style="color: #a9a1e1;">insert</span> <span style="color: #99bb66;">"i &#9829; cats"</span><span style="color: #51afef;">)</span>
+
+<span style="color: #525252;">;; </span><span style="color: #525252;">get the string from pos 71 to 300</span>
+<span style="color: #51afef;">(</span><span style="color: #51afef;">setq</span> x <span style="color: #c678dd;">(</span><span style="color: #a9a1e1;">buffer-substring</span> <span style="color: #dd8844; font-weight: bold;">71</span> <span style="color: #dd8844; font-weight: bold;">300</span><span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>
+
+<span style="color: #525252;">;; </span><span style="color: #525252;">capitalize letters in a region</span>
+<span style="color: #51afef;">(</span><span style="color: #a9a1e1;">capitalize-region</span> <span style="color: #dd8844; font-weight: bold;">71</span> <span style="color: #dd8844; font-weight: bold;">300</span><span style="color: #51afef;">)</span>
+
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgcd7db4d" class="outline-4">
+<h4 id="orgcd7db4d"><span class="section-number-4">2.2.4</span> String</h4>
+<div class="outline-text-4" id="text-2-2-4">
+<div class="org-src-container">
+<pre class="src src-emacs-lisp"><span style="color: #525252;">;; </span><span style="color: #525252;">length</span>
+<span style="color: #51afef;">(</span><span style="color: #a9a1e1;">length</span> <span style="color: #99bb66;">"abc"</span><span style="color: #51afef;">)</span>
+<span style="color: #525252;">; </span><span style="color: #525252;">returns 3</span>
+
+<span style="color: #525252;">;; </span><span style="color: #525252;">substring</span>
+<span style="color: #51afef;">(</span><span style="color: #a9a1e1;">substring</span> <span style="color: #99bb66;">"abcdefg"</span> <span style="color: #dd8844; font-weight: bold;">3</span> <span style="color: #dd8844; font-weight: bold;">4</span><span style="color: #51afef;">)</span>
+<span style="color: #525252;">; </span><span style="color: #525252;">returns "d"</span>
+
+<span style="color: #525252;">;; </span><span style="color: #525252;">change a given string using regex</span>
+<span style="color: #51afef;">(</span><span style="color: #c678dd;">replace-regexp-in-string</span> <span style="color: #99bb66;">"[0-9]"</span> <span style="color: #99bb66;">"X"</span> <span style="color: #99bb66;">"abc123"</span><span style="color: #51afef;">)</span>
+<span style="color: #525252;">;; </span><span style="color: #525252;">returns "abcXXX</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgece3e88" class="outline-4">
+<h4 id="orgece3e88"><span class="section-number-4">2.2.5</span> Buffer</h4>
+<div class="outline-text-4" id="text-2-2-5">
+<div class="org-src-container">
+<pre class="src src-emacs-lisp"><span style="color: #525252;">;; </span><span style="color: #525252;">return the name of current buffer</span>
+<span style="color: #51afef;">(</span><span style="color: #a9a1e1;">buffer-name</span><span style="color: #51afef;">)</span>
+
+<span style="color: #525252;">;; </span><span style="color: #525252;">return the full path of current file</span>
+<span style="color: #51afef;">(</span><span style="color: #dcaeea;">buffer-file-name</span><span style="color: #51afef;">)</span>
+
+<span style="color: #525252;">;; </span><span style="color: #525252;">switch to the buffer named xyz</span>
+<span style="color: #51afef;">(</span><span style="color: #a9a1e1;">set-buffer</span> <span style="color: #99bb66;">"xyz"</span><span style="color: #51afef;">)</span>
+
+<span style="color: #525252;">;; </span><span style="color: #525252;">save current buffer</span>
+<span style="color: #51afef;">(</span><span style="color: #c678dd;">save-buffer</span><span style="color: #51afef;">)</span>
+
+<span style="color: #525252;">;; </span><span style="color: #525252;">close a buffer named xyz</span>
+<span style="color: #51afef;">(</span><span style="color: #a9a1e1;">kill-buffer</span> <span style="color: #99bb66;">"xyz"</span><span style="color: #51afef;">)</span>
+
+<span style="color: #525252;">;; </span><span style="color: #525252;">temporarily sets a buffer as current to work with</span>
+<span style="color: #51afef;">(</span><span style="color: #51afef;">with-current-buffer</span> <span style="color: #99bb66;">"xyz"</span>
+  <span style="color: #525252;">;; </span><span style="color: #525252;">do something here. delete/insert text, etc.</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org88114dc" class="outline-4">
+<h4 id="org88114dc"><span class="section-number-4">2.2.6</span> File</h4>
+<div class="outline-text-4" id="text-2-2-6">
+<div class="org-src-container">
+<pre class="src src-emacs-lisp"><span style="color: #525252;">;; </span><span style="color: #525252;">open a file (in a buffer)</span>
+<span style="color: #51afef;">(</span><span style="color: #c678dd;">find-file</span> <span style="color: #99bb66;">"~/"</span><span style="color: #51afef;">)</span>
+
+<span style="color: #525252;">;; </span><span style="color: #525252;">same as &#8220;Save As&#8221;.</span>
+<span style="color: #51afef;">(</span><span style="color: #c678dd;">write-file</span> path<span style="color: #51afef;">)</span>
+
+<span style="color: #525252;">;; </span><span style="color: #525252;">insert file into current position</span>
+<span style="color: #51afef;">(</span><span style="color: #a9a1e1;">insert-file-contents</span> path<span style="color: #51afef;">)</span>
+
+<span style="color: #525252;">;; </span><span style="color: #525252;">append a text block to file</span>
+<span style="color: #51afef;">(</span><span style="color: #c678dd;">append-to-file</span> start-pos end-pos path<span style="color: #51afef;">)</span>
+
+<span style="color: #525252;">;; </span><span style="color: #525252;">renaming file</span>
+<span style="color: #51afef;">(</span><span style="color: #a9a1e1;">rename-file</span> file-name new-name<span style="color: #51afef;">)</span>
+
+<span style="color: #525252;">;; </span><span style="color: #525252;">copying file</span>
+<span style="color: #51afef;">(</span><span style="color: #a9a1e1;">copy-file</span> old-name new-name<span style="color: #51afef;">)</span>
+
+<span style="color: #525252;">;; </span><span style="color: #525252;">deleting file</span>
+<span style="color: #51afef;">(</span><span style="color: #a9a1e1;">delete-file</span> file-name<span style="color: #51afef;">)</span>
+
+<span style="color: #525252;">;; </span><span style="color: #525252;">get dir path</span>
+<span style="color: #51afef;">(</span><span style="color: #a9a1e1;">file-name-directory</span> full-path<span style="color: #51afef;">)</span>
+
+<span style="color: #525252;">;; </span><span style="color: #525252;">get filename part</span>
+<span style="color: #51afef;">(</span><span style="color: #a9a1e1;">file-name-nondirectory</span> full-path<span style="color: #51afef;">)</span>
+
+<span style="color: #525252;">;; </span><span style="color: #525252;">get filename's suffix</span>
+<span style="color: #51afef;">(</span><span style="color: #c678dd;">file-name-extension</span> file-name<span style="color: #51afef;">)</span>
+
+<span style="color: #525252;">;; </span><span style="color: #525252;">get filename sans suffix</span>
+<span style="color: #51afef;">(</span><span style="color: #c678dd;">file-name-sans-extension</span> file-name<span style="color: #51afef;">)</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgf3bcd0e" class="outline-4">
+<h4 id="orgf3bcd0e"><span class="section-number-4">2.2.7</span> Simple Example</h4>
+<div class="outline-text-4" id="text-2-2-7">
+<div class="org-src-container">
+<pre class="src src-emacs-lisp"><span style="color: #51afef;">(</span><span style="color: #51afef;">defun</span> <span style="color: #c678dd;">insert-p-tag</span> <span style="color: #c678dd;">()</span>
+  <span style="color: #7d7d7d;">"Insert &lt;p&gt;&lt;/p&gt; at cursor point."</span>
+  <span style="color: #c678dd;">(</span><span style="color: #51afef;">interactive</span><span style="color: #c678dd;">)</span>
+  <span style="color: #c678dd;">(</span><span style="color: #a9a1e1;">insert</span> <span style="color: #99bb66;">"&lt;p&gt;&lt;/p&gt;"</span><span style="color: #c678dd;">)</span>
+  <span style="color: #c678dd;">(</span><span style="color: #a9a1e1;">backward-char</span> <span style="color: #dd8844; font-weight: bold;">4</span><span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org3899158" class="outline-3">
+<h3 id="org3899158"><span class="section-number-3">2.3</span> Elisp Examples</h3>
+<div class="outline-text-3" id="text-2-3">
+</div>
+<div id="outline-container-org5b958e5" class="outline-4">
+<h4 id="org5b958e5"><span class="section-number-4">2.3.1</span> Insert Text</h4>
+<div class="outline-text-4" id="text-2-3-1">
+<div class="org-src-container">
+<pre class="src src-emacs-lisp"><span style="color: #51afef;">(</span><span style="color: #51afef;">defun</span> <span style="color: #c678dd;">insert-p-tag</span> <span style="color: #c678dd;">()</span>
+  <span style="color: #7d7d7d;">"Insert &lt;p&gt;&lt;/p&gt; at cursor point."</span>
+  <span style="color: #c678dd;">(</span><span style="color: #51afef;">interactive</span><span style="color: #c678dd;">)</span>
+  <span style="color: #c678dd;">(</span><span style="color: #a9a1e1;">insert</span> <span style="color: #99bb66;">"&lt;p&gt;&lt;/p&gt;"</span><span style="color: #c678dd;">)</span>
+  <span style="color: #c678dd;">(</span><span style="color: #a9a1e1;">backward-char</span> <span style="color: #dd8844; font-weight: bold;">4</span><span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org47ae068" class="outline-4">
+<h4 id="org47ae068"><span class="section-number-4">2.3.2</span> insert around region</h4>
+<div class="outline-text-4" id="text-2-3-2">
+<div class="org-src-container">
+<pre class="src src-emacs-lisp"><span style="color: #51afef;">(</span><span style="color: #51afef;">defun</span> <span style="color: #c678dd;">wrap-markup-region</span> <span style="color: #c678dd;">()</span>
+  <span style="color: #7d7d7d;">"Insert a markup &lt;b&gt;&lt;/b&gt; around a region."</span>
+  <span style="color: #c678dd;">(</span><span style="color: #51afef;">interactive</span><span style="color: #c678dd;">)</span>
+  <span style="color: #c678dd;">(</span><span style="color: #51afef;">save-excursion</span>
+    <span style="color: #99bb66;">(</span><span style="color: #a9a1e1;">goto-char</span> <span style="color: #51afef;">(</span><span style="color: #a9a1e1;">region-end</span><span style="color: #51afef;">)</span><span style="color: #99bb66;">)</span>
+    <span style="color: #99bb66;">(</span><span style="color: #a9a1e1;">insert</span> <span style="color: #99bb66;">"&lt;/b&gt;"</span><span style="color: #99bb66;">)</span>
+    <span style="color: #99bb66;">(</span><span style="color: #a9a1e1;">goto-char</span> <span style="color: #51afef;">(</span><span style="color: #a9a1e1;">region-beginning</span><span style="color: #51afef;">)</span><span style="color: #99bb66;">)</span>
+    <span style="color: #99bb66;">(</span><span style="color: #a9a1e1;">insert</span> <span style="color: #99bb66;">"&lt;b&gt;"</span><span style="color: #99bb66;">)</span><span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org0798fd7" class="outline-4">
+<h4 id="org0798fd7"><span class="section-number-4">2.3.3</span> Select current Word</h4>
+<div class="outline-text-4" id="text-2-3-3">
+<div class="org-src-container">
+<pre class="src src-emacs-lisp"><span style="color: #525252;">;; </span><span style="color: #525252;">turn on highlight selection</span>
+<span style="color: #51afef;">(</span><span style="color: #dcaeea;">transient-mark-mode</span> <span style="color: #dd8844; font-weight: bold;">1</span><span style="color: #51afef;">)</span>
+
+<span style="color: #51afef;">(</span><span style="color: #51afef;">defun</span> <span style="color: #c678dd;">select-current-word</span> <span style="color: #c678dd;">()</span>
+  <span style="color: #7d7d7d;">"Select the word under cursor.</span>
+<span style="color: #7d7d7d;">&#8220;word&#8221; here is considered any alphanumeric sequence with &#8220;_&#8221; or &#8220;-&#8221;."</span>
+  <span style="color: #c678dd;">(</span><span style="color: #51afef;">interactive</span><span style="color: #c678dd;">)</span>
+  <span style="color: #c678dd;">(</span><span style="color: #51afef;">let</span> <span style="color: #99bb66;">(</span>pt<span style="color: #99bb66;">)</span>
+    <span style="color: #99bb66;">(</span><span style="color: #a9a1e1;">skip-chars-backward</span> <span style="color: #99bb66;">"-_A-Za-z0-9"</span><span style="color: #99bb66;">)</span>
+    <span style="color: #99bb66;">(</span><span style="color: #51afef;">setq</span> pt <span style="color: #51afef;">(</span><span style="color: #a9a1e1;">point</span><span style="color: #51afef;">)</span><span style="color: #99bb66;">)</span>
+    <span style="color: #99bb66;">(</span><span style="color: #a9a1e1;">skip-chars-forward</span> <span style="color: #99bb66;">"-_A-Za-z0-9"</span><span style="color: #99bb66;">)</span>
+    <span style="color: #99bb66;">(</span><span style="color: #c678dd;">set-mark</span> pt<span style="color: #99bb66;">)</span><span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgb8132d0" class="outline-4">
+<h4 id="orgb8132d0"><span class="section-number-4">2.3.4</span> Select Current Line</h4>
+<div class="outline-text-4" id="text-2-3-4">
+<div class="org-src-container">
+<pre class="src src-emacs-lisp"><span style="color: #525252;">;; </span><span style="color: #525252;">turn on highlight selection</span>
+<span style="color: #51afef;">(</span><span style="color: #dcaeea;">transient-mark-mode</span> <span style="color: #dd8844; font-weight: bold;">1</span><span style="color: #51afef;">)</span>
+
+<span style="color: #51afef;">(</span><span style="color: #51afef;">defun</span> <span style="color: #c678dd;">select-current-line</span> <span style="color: #c678dd;">()</span>
+  <span style="color: #7d7d7d;">"Select the current line"</span>
+  <span style="color: #c678dd;">(</span><span style="color: #51afef;">interactive</span><span style="color: #c678dd;">)</span>
+  <span style="color: #c678dd;">(</span><span style="color: #51afef;">let</span> <span style="color: #99bb66;">(</span><span style="color: #51afef;">(</span>pos <span style="color: #c678dd;">(</span><span style="color: #a9a1e1;">line-beginning-position</span><span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span><span style="color: #99bb66;">)</span>
+    <span style="color: #99bb66;">(</span><span style="color: #a9a1e1;">end-of-line</span><span style="color: #99bb66;">)</span>
+    <span style="color: #99bb66;">(</span><span style="color: #c678dd;">set-mark</span> pos<span style="color: #99bb66;">)</span><span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org4376694" class="outline-4">
+<h4 id="org4376694"><span class="section-number-4">2.3.5</span> Find Replace String in Region</h4>
+<div class="outline-text-4" id="text-2-3-5">
+<div class="org-src-container">
+<pre class="src src-emacs-lisp"><span style="color: #51afef;">(</span><span style="color: #51afef;">defun</span> <span style="color: #c678dd;">replace-greek-region</span> <span style="color: #c678dd;">()</span>
+  <span style="color: #7d7d7d;">"Replace &#8220;alpha&#8221; to &#8220;&#945;&#8221; and other greek letters in current region."</span>
+  <span style="color: #c678dd;">(</span><span style="color: #51afef;">interactive</span><span style="color: #c678dd;">)</span>
+  <span style="color: #c678dd;">(</span><span style="color: #51afef;">let</span> <span style="color: #99bb66;">(</span>
+        <span style="color: #51afef;">(</span>p1 <span style="color: #c678dd;">(</span><span style="color: #a9a1e1;">region-beginning</span><span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>
+        <span style="color: #51afef;">(</span>p2 <span style="color: #c678dd;">(</span><span style="color: #a9a1e1;">region-end</span><span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span><span style="color: #99bb66;">)</span>
+    <span style="color: #99bb66;">(</span><span style="color: #51afef;">save-restriction</span>
+      <span style="color: #51afef;">(</span><span style="color: #a9a1e1;">narrow-to-region</span> p1 p2<span style="color: #51afef;">)</span>
+      <span style="color: #51afef;">(</span><span style="color: #a9a1e1;">goto-char</span> <span style="color: #c678dd;">(</span><span style="color: #a9a1e1;">point-min</span><span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>
+      <span style="color: #51afef;">(</span><span style="color: #51afef;">while</span> <span style="color: #c678dd;">(</span><span style="color: #a9a1e1;">search-forward</span> <span style="color: #99bb66;">" alpha"</span> nil t<span style="color: #c678dd;">)</span>
+        <span style="color: #c678dd;">(</span><span style="color: #a9a1e1;">replace-match</span> <span style="color: #99bb66;">" &#945;"</span> nil t<span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>
+      <span style="color: #51afef;">(</span><span style="color: #a9a1e1;">goto-char</span> <span style="color: #c678dd;">(</span><span style="color: #a9a1e1;">point-min</span><span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>
+      <span style="color: #51afef;">(</span><span style="color: #51afef;">while</span> <span style="color: #c678dd;">(</span><span style="color: #a9a1e1;">search-forward</span> <span style="color: #99bb66;">" beta"</span> nil t<span style="color: #c678dd;">)</span>
+        <span style="color: #c678dd;">(</span><span style="color: #a9a1e1;">replace-match</span> <span style="color: #99bb66;">" &#946;"</span> nil t<span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>
+      <span style="color: #51afef;">(</span><span style="color: #a9a1e1;">goto-char</span> <span style="color: #c678dd;">(</span><span style="color: #a9a1e1;">point-min</span><span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>
+      <span style="color: #51afef;">(</span><span style="color: #51afef;">while</span> <span style="color: #c678dd;">(</span><span style="color: #a9a1e1;">search-forward</span> <span style="color: #99bb66;">" gamma"</span> nil t<span style="color: #c678dd;">)</span>
+        <span style="color: #c678dd;">(</span><span style="color: #a9a1e1;">replace-match</span> <span style="color: #99bb66;">" &#947;"</span> nil t<span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span><span style="color: #99bb66;">)</span><span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org9deaf70" class="outline-4">
+<h4 id="org9deaf70"><span class="section-number-4">2.3.6</span> delete enclosed text</h4>
+<div class="outline-text-4" id="text-2-3-6">
+<div class="org-src-container">
+<pre class="src src-emacs-lisp"><span style="color: #51afef;">(</span><span style="color: #51afef;">defun</span> <span style="color: #c678dd;">delete-enclosed-text</span> <span style="color: #c678dd;">()</span>
+  <span style="color: #7d7d7d;">"Delete texts between any pair of delimiters."</span>
+  <span style="color: #c678dd;">(</span><span style="color: #51afef;">interactive</span><span style="color: #c678dd;">)</span>
+  <span style="color: #c678dd;">(</span><span style="color: #51afef;">save-excursion</span>
+    <span style="color: #99bb66;">(</span><span style="color: #51afef;">let</span> <span style="color: #51afef;">(</span>p1 p2<span style="color: #51afef;">)</span>
+      <span style="color: #51afef;">(</span><span style="color: #a9a1e1;">skip-chars-backward</span> <span style="color: #99bb66;">"^([&lt;&gt;&#8220;"</span><span style="color: #51afef;">)</span>
+      <span style="color: #51afef;">(</span><span style="color: #51afef;">setq</span> p1 <span style="color: #c678dd;">(</span><span style="color: #a9a1e1;">point</span><span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>
+      <span style="color: #51afef;">(</span><span style="color: #a9a1e1;">skip-chars-forward</span> <span style="color: #99bb66;">"^)]&lt;&gt;&#8221;"</span><span style="color: #51afef;">)</span>
+      <span style="color: #51afef;">(</span><span style="color: #51afef;">setq</span> p2 <span style="color: #c678dd;">(</span><span style="color: #a9a1e1;">point</span><span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>
+      <span style="color: #51afef;">(</span><span style="color: #a9a1e1;">delete-region</span> p1 p2<span style="color: #51afef;">)</span><span style="color: #99bb66;">)</span><span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orgb682ed3" class="outline-3">
+<h3 id="orgb682ed3"><span class="section-number-3">2.4</span> Delete Linebreaks</h3>
+<div class="outline-text-3" id="text-2-4">
+<div class="org-src-container">
+<pre class="src src-emacs-lisp"><span style="color: #51afef;">(</span><span style="color: #51afef;">defun</span> <span style="color: #c678dd;">remove-line-breaks</span> <span style="color: #c678dd;">()</span>
+  <span style="color: #7d7d7d;">"Remove line endings in current paragraph."</span>
+  <span style="color: #c678dd;">(</span><span style="color: #51afef;">interactive</span><span style="color: #c678dd;">)</span>
+  <span style="color: #c678dd;">(</span><span style="color: #51afef;">let</span> <span style="color: #99bb66;">(</span><span style="color: #51afef;">(</span><span style="color: #dcaeea;">fill-column</span> <span style="color: #c678dd;">(</span><span style="color: #a9a1e1;">point-max</span><span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span><span style="color: #99bb66;">)</span>
+    <span style="color: #99bb66;">(</span><span style="color: #c678dd;">fill-paragraph</span> nil<span style="color: #99bb66;">)</span><span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>
+</pre>
+</div>
+</div>
+<div id="outline-container-org7f96d00" class="outline-4">
+<h4 id="org7f96d00"><span class="section-number-4">2.4.1</span> Random Number</h4>
+<div class="outline-text-4" id="text-2-4-1">
+<div class="org-src-container">
+<pre class="src src-emacs-lisp"><span style="color: #51afef;">(</span><span style="color: #a9a1e1;">random</span> <span style="color: #dd8844; font-weight: bold;">99999</span><span style="color: #51afef;">)</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org5873abe" class="outline-4">
+<h4 id="org5873abe"><span class="section-number-4">2.4.2</span> Reference LookUP</h4>
+<div class="outline-text-4" id="text-2-4-2">
+<div class="org-src-container">
+<pre class="src src-emacs-lisp"><span style="color: #51afef;">(</span><span style="color: #51afef;">defun</span> <span style="color: #c678dd;">word-definition-lookup</span> <span style="color: #c678dd;">()</span>
+<span style="color: #7d7d7d;">"Look up the word under cursor in a browser."</span>
+ <span style="color: #c678dd;">(</span><span style="color: #51afef;">interactive</span><span style="color: #c678dd;">)</span>
+ <span style="color: #c678dd;">(</span><span style="color: #c678dd;">browse-url</span>
+   <span style="color: #99bb66;">(</span><span style="color: #a9a1e1;">concat</span> <span style="color: #99bb66;">"http://www.answers.com/main/ntquery?s="</span> <span style="color: #51afef;">(</span><span style="color: #c678dd;">thing-at-point</span> <span style="color: #51afef;">'</span><span style="color: #ECBE7B;">sentence</span><span style="color: #51afef;">)</span><span style="color: #99bb66;">)</span><span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgd745e30" class="outline-4">
+<h4 id="orgd745e30"><span class="section-number-4">2.4.3</span> Change Newline Character</h4>
+<div class="outline-text-4" id="text-2-4-3">
+<div class="org-src-container">
+<pre class="src src-emacs-lisp"><span style="color: #51afef;">(</span><span style="color: #51afef;">defun</span> <span style="color: #c678dd;">to-unix-eol</span> <span style="color: #c678dd;">(</span>fPath<span style="color: #c678dd;">)</span>
+  <span style="color: #7d7d7d;">"Change file's line ending to unix convention."</span>
+  <span style="color: #c678dd;">(</span><span style="color: #51afef;">interactive</span><span style="color: #c678dd;">)</span>
+  <span style="color: #c678dd;">(</span><span style="color: #51afef;">let</span> <span style="color: #99bb66;">(</span><span style="color: #51afef;">(</span>myBuffer <span style="color: #c678dd;">(</span><span style="color: #c678dd;">find-file</span> fPath<span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span><span style="color: #99bb66;">)</span>
+    <span style="color: #99bb66;">(</span><span style="color: #c678dd;">set-buffer-file-coding-system</span> <span style="color: #51afef;">'</span><span style="color: #ECBE7B;">unix</span><span style="color: #99bb66;">)</span> <span style="color: #525252;">; </span><span style="color: #525252;">or 'mac or 'dos</span>
+    <span style="color: #99bb66;">(</span><span style="color: #c678dd;">save-buffer</span><span style="color: #99bb66;">)</span>
+    <span style="color: #99bb66;">(</span><span style="color: #a9a1e1;">kill-buffer</span> myBuffer<span style="color: #99bb66;">)</span><span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org47b0ffc" class="outline-4">
+<h4 id="org47b0ffc"><span class="section-number-4">2.4.4</span> Delete Currente File</h4>
+<div class="outline-text-4" id="text-2-4-4">
+<div class="org-src-container">
+<pre class="src src-emacs-lisp"><span style="color: #51afef;">(</span><span style="color: #51afef;">defun</span> <span style="color: #c678dd;">delete-current-file</span> <span style="color: #c678dd;">()</span>
+  <span style="color: #7d7d7d;">"Delete the file associated with the current buffer.</span>
+<span style="color: #7d7d7d;">Delete the current buffer too.</span>
+<span style="color: #7d7d7d;">If no file is associated, just close buffer without prompt for save."</span>
+  <span style="color: #c678dd;">(</span><span style="color: #51afef;">interactive</span><span style="color: #c678dd;">)</span>
+  <span style="color: #c678dd;">(</span><span style="color: #51afef;">let</span> <span style="color: #99bb66;">(</span><span style="color: #51afef;">(</span>currentFile <span style="color: #c678dd;">(</span><span style="color: #dcaeea;">buffer-file-name</span><span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span><span style="color: #99bb66;">)</span>
+    <span style="color: #99bb66;">(</span><span style="color: #51afef;">when</span> <span style="color: #51afef;">(</span><span style="color: #c678dd;">yes-or-no-p</span> <span style="color: #c678dd;">(</span><span style="color: #a9a1e1;">concat</span> <span style="color: #99bb66;">"Delete file?: "</span> currentFile<span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>
+      <span style="color: #51afef;">(</span><span style="color: #a9a1e1;">kill-buffer</span> <span style="color: #c678dd;">(</span><span style="color: #a9a1e1;">current-buffer</span><span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>
+      <span style="color: #51afef;">(</span><span style="color: #51afef;">when</span> currentFile
+        <span style="color: #c678dd;">(</span><span style="color: #a9a1e1;">delete-file</span> currentFile<span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span><span style="color: #99bb66;">)</span><span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>
+
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgc967d6e" class="outline-4">
+<h4 id="orgc967d6e"><span class="section-number-4">2.4.5</span> Insert Vertical Column of Numbers</h4>
+<div class="outline-text-4" id="text-2-4-5">
+<div class="org-src-container">
+<pre class="src src-emacs-lisp"><span style="color: #51afef;">(</span><span style="color: #51afef;">defun</span> <span style="color: #c678dd;">insert-column-counter</span> <span style="color: #c678dd;">(</span>n<span style="color: #c678dd;">)</span>
+  <span style="color: #7d7d7d;">"deocjdkfjdkf.............."</span>
+  <span style="color: #c678dd;">(</span><span style="color: #51afef;">interactive</span> <span style="color: #99bb66;">"nEnter the max integer: "</span><span style="color: #c678dd;">)</span>
+  <span style="color: #c678dd;">(</span><span style="color: #51afef;">let</span> <span style="color: #99bb66;">(</span><span style="color: #51afef;">(</span>i <span style="color: #dd8844; font-weight: bold;">1</span><span style="color: #51afef;">)</span> colpos<span style="color: #99bb66;">)</span>
+    <span style="color: #99bb66;">(</span><span style="color: #51afef;">setq</span> colpos <span style="color: #51afef;">(</span><span style="color: #a9a1e1;">-</span> <span style="color: #c678dd;">(</span><span style="color: #a9a1e1;">point</span><span style="color: #c678dd;">)</span> <span style="color: #c678dd;">(</span><span style="color: #a9a1e1;">line-beginning-position</span><span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span><span style="color: #99bb66;">)</span>
+    <span style="color: #99bb66;">(</span><span style="color: #51afef;">while</span> <span style="color: #51afef;">(</span><span style="color: #a9a1e1;">&lt;=</span> i n<span style="color: #51afef;">)</span>
+      <span style="color: #51afef;">(</span><span style="color: #a9a1e1;">insert</span> <span style="color: #c678dd;">(</span><span style="color: #a9a1e1;">number-to-string</span> i<span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>
+      <span style="color: #51afef;">(</span><span style="color: #a9a1e1;">forward-line</span><span style="color: #51afef;">)</span>
+      <span style="color: #51afef;">(</span><span style="color: #a9a1e1;">beginning-of-line</span><span style="color: #51afef;">)</span>
+      <span style="color: #51afef;">(</span><span style="color: #a9a1e1;">forward-char</span> colpos<span style="color: #51afef;">)</span>
+      <span style="color: #51afef;">(</span><span style="color: #51afef;">setq</span> i <span style="color: #c678dd;">(</span><span style="color: #a9a1e1;">1+</span> i<span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>
+      <span style="color: #99bb66;">)</span>
+    <span style="color: #c678dd;">)</span>
+
+  <span style="color: #51afef;">)</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org215d392" class="outline-3">
+<h3 id="org215d392"><span class="section-number-3">2.5</span> Evaluate Elisp Code</h3>
+<div class="outline-text-3" id="text-2-5">
+<p>
+eval-buffer
+eval-region
+</p>
+</div>
+</div>
+<div id="outline-container-org7b75aa8" class="outline-3">
+<h3 id="org7b75aa8"><span class="section-number-3">2.6</span> Doc lookUp</h3>
+<div class="outline-text-3" id="text-2-6">
+</div>
+<div id="outline-container-org8eddb24" class="outline-4">
+<h4 id="org8eddb24"><span class="section-number-4">2.6.1</span> LookUp Function Doc String</h4>
+<div class="outline-text-4" id="text-2-6-1">
+<p>
+you can use * in Describe Functions
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org82b69cc" class="outline-3">
+<h3 id="org82b69cc"><span class="section-number-3">2.7</span> Search Doc</h3>
+<div class="outline-text-3" id="text-2-7">
+<ul class="org-ul">
+<li>search command ===&gt; C-h a</li>
+<li>search command and function ====&gt; C-u C-h a</li>
+<li>M-x : apropos-variable</li>
+<li>M-x : apropos - value</li>
+<li>To find function documentation M-x : emacs -index-search</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org65b9a74" class="outline-2">
+<h2 id="org65b9a74"><span class="section-number-2">3</span> Basic Funtions</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-orge317739" class="outline-3">
+<h3 id="orge317739"><span class="section-number-3">3.1</span> Get Cursor Position</h3>
+<div class="outline-text-3" id="text-3-1">
+<ul class="org-ul">
+<li>point</li>
+<li>save-excursion</li>
+<li>re-serach-forward</li>
+<li>search-backward</li>
+<li>skip-chars-backward</li>
+<li>beginning-of-line</li>
+<li>end-of-line</li>
+<li>region-beginning</li>
+<li>goto-char</li>
+<li>forward-char</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org891b98c" class="outline-3">
+<h3 id="org891b98c"><span class="section-number-3">3.2</span> Text Editing</h3>
+<div class="outline-text-3" id="text-3-2">
+<ul class="org-ul">
+<li>delete-char</li>
+<li>delete-region</li>
+<li>erase-buffer</li>
+<li>delete-and-extract-region</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgc33ac62" class="outline-3">
+<h3 id="orgc33ac62"><span class="section-number-3">3.3</span> String Functions</h3>
+<div class="outline-text-3" id="text-3-3">
+<ul class="org-ul">
+<li>(match-string 1 myhStr)  ======&gt; match-data</li>
+<li>replace-regexp-in-string myRegex myreplacement mystr</li>
+<li>(split-string &rsquo;xy<sub>007</sub><sub>cat</sub>&rsquo; &ldquo;_&rdquo;)</li>
+<li>string to number</li>
+<li>number-to-string</li>
+<li>string-join</li>
+<li>concat</li>
+<li>string-trim, left, right</li>
+<li>string-reverse ==========&gt;  (require &rsquo;subr-x)</li>
+<li>format</li>
+</ul>
+</div>
+<ol class="org-ol">
+<li><a id="orgccf6dca"></a>String to Buffer<br />
+<div class="outline-text-6" id="text-3-3-0-0-1">
+<p>
+If you got a big string already somehow, you can put into a buffer by using with-temp-buffer, then insert your string, process it, then use buffer-string to get the whole buffer content.
+</p>
+<div class="org-src-container">
+<pre class="src src-emacs-lisp"><span style="color: #525252;">;; </span><span style="color: #525252;">process string in a temp buffer</span>
+
+<span style="color: #51afef;">(</span><span style="color: #51afef;">with-temp-buffer</span>
+  <span style="color: #c678dd;">(</span><span style="color: #a9a1e1;">insert</span> bigString<span style="color: #c678dd;">)</span>
+
+  <span style="color: #c678dd;">(</span><span style="color: #a9a1e1;">goto-char</span> <span style="color: #99bb66;">(</span><span style="color: #a9a1e1;">point-min</span><span style="color: #99bb66;">)</span><span style="color: #c678dd;">)</span>
+
+  <span style="color: #525252;">;; </span><span style="color: #525252;">code to manipulate string. eg delete char, etc</span>
+
+  <span style="color: #525252;">;; </span><span style="color: #525252;">return whole buffer string</span>
+  <span style="color: #c678dd;">(</span><span style="color: #a9a1e1;">buffer-string</span><span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>
+</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div id="outline-container-orgf5c74c6" class="outline-3">
+<h3 id="orgf5c74c6"><span class="section-number-3">3.4</span> Buffer</h3>
+<div class="outline-text-3" id="text-3-4">
+<ul class="org-ul">
+<li>buffer-name</li>
+<li>buffer-file-name (full path of the file)</li>
+<li>set-buffer</li>
+</ul>
+</div>
+<div id="outline-container-org11969dc" class="outline-4">
+<h4 id="org11969dc"><span class="section-number-4">3.4.1</span> Switch Buffer</h4>
+<div class="outline-text-4" id="text-3-4-1">
+<p>
+with-current-buffer → temporarily make a buffer current.
+</p>
+
+<p>
+Most of the time, you want to use this. Because it takes care of switching back to the original buffer when the function is done.
+</p>
+<div class="org-src-container">
+<pre class="src src-emacs-lisp"><span style="color: #525252;">;; </span><span style="color: #525252;">make myBuf current temporarily</span>
+<span style="color: #51afef;">(</span><span style="color: #51afef;">with-current-buffer</span> myBuf
+  <span style="color: #525252;">;; </span><span style="color: #525252;">code to edit text here</span>
+<span style="color: #51afef;">)</span>
+<span style="color: #51afef;">(</span><span style="color: #51afef;">save-current-buffer</span>
+
+  <span style="color: #525252;">;; </span><span style="color: #525252;">switch to myBuf</span>
+  <span style="color: #c678dd;">(</span><span style="color: #a9a1e1;">set-buffer</span> myBuf<span style="color: #c678dd;">)</span>
+
+  <span style="color: #525252;">;; </span><span style="color: #525252;">do stuff, such as insert/delete text</span>
+  <span style="color: #51afef;">)</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org7c4c528" class="outline-4">
+<h4 id="org7c4c528"><span class="section-number-4">3.4.2</span> Create Buffer</h4>
+<div class="outline-text-4" id="text-3-4-2">
+<ul class="org-ul">
+<li>with-temp-buffer
+(with-temp-buffer &amp;rest BODY)
+Create a temporary buffer, and evaluate BODY there like progn.</li>
+<li>geneerate-new-buffer
+Create and return a buffer with a name based on NAME. Buffer name is created by calling generate-new-buffer-name.</li>
+<li>get-buffer-create
+()Returns the buffer, but doesn&rsquo;t make it current. use set-buffer to make it current.</li>
+<li>kill buffer</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org3345602" class="outline-3">
+<h3 id="org3345602"><span class="section-number-3">3.5</span> File</h3>
+<div class="outline-text-3" id="text-3-5">
+</div>
+<div id="outline-container-orgab26260" class="outline-4">
+<h4 id="orgab26260"><span class="section-number-4">3.5.1</span> Open File</h4>
+<div class="outline-text-4" id="text-3-5-1">
+<p>
+(find-file FILENAME &amp;optional WILDCARDS)
+</p>
+</div>
+</div>
+<div id="outline-container-org1fa1403" class="outline-4">
+<h4 id="org1fa1403"><span class="section-number-4">3.5.2</span> wrtie file</h4>
+<div class="outline-text-4" id="text-3-5-2">
+<p>
+(write-region start end filename-created &amp;optional Append visit loackname mustbenew)
+(save-buffer)
+(write-file &rsquo;~/new.txt&rsquo;)
+</p>
+</div>
+</div>
+<div id="outline-container-org8d45851" class="outline-4">
+<h4 id="org8d45851"><span class="section-number-4">3.5.3</span> Append File</h4>
+<div class="outline-text-4" id="text-3-5-3">
+<p>
+(append-to-file 100 200 &ldquo;~/test.txt&rdquo;) -&#x2013;&#x2014;&gt; current-buffer positions saves to file
+</p>
+</div>
+</div>
+<div id="outline-container-org7e47862" class="outline-4">
+<h4 id="org7e47862"><span class="section-number-4">3.5.4</span> Close File</h4>
+<div class="outline-text-4" id="text-3-5-4">
+<p>
+kill-buffer
+</p>
+</div>
+</div>
+<div id="outline-container-orgd119ab6" class="outline-4">
+<h4 id="orgd119ab6"><span class="section-number-4">3.5.5</span> Create New File</h4>
+<div class="outline-text-4" id="text-3-5-5">
+<p>
+find-file FILENAME  &amp;Optional WILDCARDS
+</p>
+<div class="org-src-container">
+<pre class="src src-emacs-lisp"><span style="color: #51afef;">(</span><span style="color: #51afef;">setq</span> newBufName <span style="color: #99bb66;">" xyz"</span><span style="color: #51afef;">)</span>
+
+<span style="color: #525252;">;; </span><span style="color: #525252;">create a new buffer, save it to a var, so later you can switch to it or kill it</span>
+<span style="color: #51afef;">(</span><span style="color: #51afef;">setq</span> newBuf <span style="color: #c678dd;">(</span><span style="color: #c678dd;">generate-new-buffer</span> newBufName<span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>
+
+<span style="color: #525252;">;; </span><span style="color: #525252;">make it current (but does not make it visible), so all insert etc operations works on it.</span>
+<span style="color: #51afef;">(</span><span style="color: #a9a1e1;">set-buffer</span> newBuf<span style="color: #51afef;">)</span>
+
+<span style="color: #525252;">;; </span><span style="color: #525252;">like &#8220;Save As&#8221;. Save current buffer, close it, and open the new saved</span>
+<span style="color: #51afef;">(</span><span style="color: #c678dd;">write-file</span> <span style="color: #99bb66;">"~/new.txt"</span><span style="color: #51afef;">)</span>
+
+<span style="color: #525252;">;; </span><span style="color: #525252;">close it</span>
+<span style="color: #51afef;">(</span><span style="color: #a9a1e1;">kill-buffer</span> newBuf<span style="color: #51afef;">)</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org7d5e826" class="outline-4">
+<h4 id="org7d5e826"><span class="section-number-4">3.5.6</span> with-temp-file</h4>
+<div class="outline-text-4" id="text-3-5-6">
+<p>
+with-temp-file → (with-temp-file FILE BODY).
+</p>
+
+<p>
+Create a new buffer, make it current, evaluate BODY, and write the buffer to FILE. The value returned is the value of the last form in BODY.
+</p>
+<div class="org-src-container">
+<pre class="src src-emacs-lisp"><span style="color: #525252;">;; </span><span style="color: #525252;">create a file with text hello</span>
+
+<span style="color: #51afef;">(</span><span style="color: #51afef;">with-temp-file</span> <span style="color: #99bb66;">"test.txt"</span>
+  <span style="color: #c678dd;">(</span><span style="color: #a9a1e1;">insert</span> <span style="color: #99bb66;">"hello"</span><span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orgdf834c0" class="outline-2">
+<h2 id="orgdf834c0"><span class="section-number-2">4</span> File/Dir Path</h2>
+<div class="outline-text-2" id="text-4">
+</div>
+<div id="outline-container-orgc487c0b" class="outline-4">
+<h4 id="orgc487c0b"><span class="section-number-4">4.0.1</span> Function on File</h4>
+<div class="outline-text-4" id="text-4-0-1">
+<ul class="org-ul">
+<li>set-files-modes</li>
+<li>file-exists-p</li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-emacs-lisp"><span style="color: #51afef;">(</span><span style="color: #a9a1e1;">rename-file</span> <span style="color: #99bb66;">"/home/joe/test1.txt"</span> <span style="color: #99bb66;">"/home/joe/test2.txt"</span><span style="color: #51afef;">)</span>
+
+<span style="color: #51afef;">(</span><span style="color: #a9a1e1;">copy-file</span> <span style="color: #99bb66;">"/home/joe/test1.txt"</span> <span style="color: #99bb66;">"/home/joe/test2.txt"</span><span style="color: #51afef;">)</span>
+
+<span style="color: #51afef;">(</span><span style="color: #a9a1e1;">delete-file</span> <span style="color: #99bb66;">"/home/joe/test2.txt"</span><span style="color: #51afef;">)</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org6b74a86" class="outline-4">
+<h4 id="org6b74a86"><span class="section-number-4">4.0.2</span> Functions on Directory</h4>
+<div class="outline-text-4" id="text-4-0-2">
+<ul class="org-ul">
+<li>firectory-files</li>
+<li>make-directory</li>
+<li>delete-directory</li>
+<li>copy-directory</li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-emacs-lisp"><span style="color: #51afef;">(</span><span style="color: #51afef;">defun</span> <span style="color: #c678dd;">make-backup</span> <span style="color: #c678dd;">()</span>
+  <span style="color: #7d7d7d;">"Make a backup copy of current buffer's file.</span>
+<span style="color: #7d7d7d;">Create a backup of current buffer's file.</span>
+<span style="color: #7d7d7d;">The new file name is the old file name with trailing &#8220;~&#8221;, in the same dir.</span>
+<span style="color: #7d7d7d;">If such a file already exist, append more &#8220;~&#8221;.</span>
+<span style="color: #7d7d7d;">If the current buffer is not associated with a file, its a error."</span>
+  <span style="color: #c678dd;">(</span><span style="color: #51afef;">interactive</span><span style="color: #c678dd;">)</span>
+  <span style="color: #c678dd;">(</span><span style="color: #51afef;">let</span> <span style="color: #99bb66;">(</span><span style="color: #51afef;">(</span>fName <span style="color: #c678dd;">(</span><span style="color: #dcaeea;">buffer-file-name</span><span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>
+         backupName <span style="color: #99bb66;">)</span>
+    <span style="color: #99bb66;">(</span><span style="color: #51afef;">if</span> <span style="color: #51afef;">(</span><span style="color: #a9a1e1;">not</span> fname<span style="color: #51afef;">)</span>
+        <span style="color: #51afef;">(</span><span style="color: #c678dd;">error</span> <span style="color: #99bb66;">"current buffer is not a file."</span> <span style="color: #51afef;">)</span>
+      <span style="color: #51afef;">(</span><span style="color: #51afef;">progn</span>
+        <span style="color: #c678dd;">(</span><span style="color: #51afef;">setq</span> backupName <span style="color: #99bb66;">(</span><span style="color: #a9a1e1;">concat</span> fName <span style="color: #99bb66;">"~"</span><span style="color: #99bb66;">)</span><span style="color: #c678dd;">)</span>
+        <span style="color: #c678dd;">(</span><span style="color: #51afef;">while</span> <span style="color: #99bb66;">(</span><span style="color: #a9a1e1;">file-exists-p</span> backupName<span style="color: #99bb66;">)</span>
+          <span style="color: #99bb66;">(</span><span style="color: #51afef;">setq</span> backupName <span style="color: #51afef;">(</span><span style="color: #a9a1e1;">concat</span> backupName <span style="color: #99bb66;">"~"</span><span style="color: #51afef;">)</span><span style="color: #99bb66;">)</span><span style="color: #c678dd;">)</span>
+        <span style="color: #c678dd;">(</span><span style="color: #a9a1e1;">copy-file</span> fName backupName t<span style="color: #c678dd;">)</span>
+        <span style="color: #c678dd;">(</span><span style="color: #a9a1e1;">message</span> <span style="color: #99bb66;">(</span><span style="color: #a9a1e1;">concat</span> <span style="color: #99bb66;">"Backup saved as: "</span> <span style="color: #51afef;">(</span><span style="color: #a9a1e1;">file-name-nondirectory</span> backupName<span style="color: #51afef;">)</span><span style="color: #99bb66;">)</span><span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span><span style="color: #99bb66;">)</span><span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orge39536b" class="outline-4">
+<h4 id="orge39536b"><span class="section-number-4">4.0.3</span> File Path Functions</h4>
+<div class="outline-text-4" id="text-4-0-3">
+<div class="org-src-container">
+<pre class="src src-emacs-lisp"><span style="color: #525252;">;; </span><span style="color: #525252;">get the dir path part</span>
+
+<span style="color: #51afef;">(</span><span style="color: #a9a1e1;">file-name-directory</span> <span style="color: #99bb66;">"/home/joe/xyz.txt"</span><span style="color: #51afef;">)</span> <span style="color: #525252;">; </span><span style="color: #525252;">"/home/joe/"</span>
+
+<span style="color: #525252;">;; </span><span style="color: #525252;">get filename part</span>
+<span style="color: #51afef;">(</span><span style="color: #a9a1e1;">file-name-nondirectory</span> <span style="color: #99bb66;">"/home/joe/xyz.txt"</span><span style="color: #51afef;">)</span> <span style="color: #525252;">; </span><span style="color: #525252;">"xyz.txt"</span>
+
+<span style="color: #525252;">;; </span><span style="color: #525252;">get filename's extension</span>
+<span style="color: #51afef;">(</span><span style="color: #c678dd;">file-name-extension</span> <span style="color: #99bb66;">"/home/joe/cat.txt.jpg"</span><span style="color: #51afef;">)</span> <span style="color: #525252;">; </span><span style="color: #525252;">"jpg"</span>
+
+<span style="color: #525252;">;; </span><span style="color: #525252;">get filename without extension</span>
+<span style="color: #51afef;">(</span><span style="color: #c678dd;">file-name-sans-extension</span> <span style="color: #99bb66;">"/home/joe/cat.txt.jpg"</span><span style="color: #51afef;">)</span> <span style="color: #525252;">; </span><span style="color: #525252;">"/home/joe/cat.txt"</span>
+
+<span style="color: #525252;">;; </span><span style="color: #525252;">get relative path</span>
+<span style="color: #51afef;">(</span><span style="color: #c678dd;">file-relative-name</span> <span style="color: #99bb66;">"/home/joe/b/cat.jpg"</span> <span style="color: #99bb66;">"/home/joe/"</span><span style="color: #51afef;">)</span> <span style="color: #525252;">; </span><span style="color: #525252;">"b/cat.jpg"</span>
+
+<span style="color: #525252;">;; </span><span style="color: #525252;">get full path</span>
+<span style="color: #51afef;">(</span><span style="color: #a9a1e1;">expand-file-name</span> <span style="color: #99bb66;">"test.el"</span><span style="color: #51afef;">)</span>
+<span style="color: #525252;">;; </span><span style="color: #525252;">sample output</span>
+<span style="color: #525252;">;; </span><span style="color: #525252;">"/home/joe/misc/emacs/test.el"</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: AkashRaj</p>
+<p class="date">Created: 2021-07-21 Wed 23:03</p>
+</div>
+</body>
+</html>
