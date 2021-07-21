@@ -1,0 +1,1191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-07-21 Wed 22:45 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Grammar</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="AkashRaj" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="https://blog.bugswriter.com/static/style.css"/>
+
+<script type="text/javascript" src="https://blog.bugswriter.com/static/org-info.js">
+// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
+// @license-end
+</script>
+
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
+<!--/*--><![CDATA[/*><!--*/
+org_html_manager.set("TOC_DEPTH", "1");
+org_html_manager.set("LINK_HOME", "");
+org_html_manager.set("LINK_UP", "");
+org_html_manager.set("LOCAL_TOC", "1");
+org_html_manager.set("VIEW_BUTTONS", "0");
+org_html_manager.set("MOUSE_HINT", "underline");
+org_html_manager.set("FIXED_TOC", "0");
+org_html_manager.set("TOC", "1");
+org_html_manager.set("VIEW", "info");
+org_html_manager.setup();  // activate after the parameters are set
+/*]]>*///-->
+// @license-end
+</script>
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Grammar</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org5865d5e">1. Noun</a></li>
+<li><a href="#org299a97c">2. Singular and Plural Noun</a></li>
+<li><a href="#org8c646bc">3. Irregular Plural -f  =&gt; -ve</a></li>
+<li><a href="#org39cbefa">4. Irregular Plural (-en)</a></li>
+<li><a href="#org640a664">5. Irregular Plural Noun (base Plural)</a></li>
+<li><a href="#org2f9d89d">6. Common (general) and Proper (specific) Nouns</a></li>
+<li><a href="#org8cda7a6">7. Concrete and Abstract Nouns</a></li>
+<li><a href="#org8f5dc51">8. Irregular Plural Noun (Mutant Plurals)</a></li>
+<li><a href="#org16f688c">9. Irregular Plural Nouns (Foreign Plurals)</a></li>
+<li><a href="#org50d9444">10. Vowel Harmony</a></li>
+<li><a href="#org4316591">11. Verb</a></li>
+<li><a href="#org06f586e">12. Introduction to Agreement [ ]</a></li>
+<li><a href="#orgb8e471d">13. Introduction to Varb Tense</a></li>
+<li><a href="#org3415a5f">14. The Present Tense (Right Now)</a></li>
+<li><a href="#orga9a1195">15. The Past Tense</a></li>
+<li><a href="#org37da53b">16. The Future Tense</a></li>
+<li><a href="#orgc6c2e71">17. The Helping Verb</a></li>
+<li><a href="#orgdba333c">18. Linking Verb</a></li>
+<li><a href="#org37952b9">19. Introduction to Irregular Verbs</a></li>
+<li><a href="#org5792066">20. Irregular verbs ( the funky -ed )</a></li>
+<li><a href="#org3c7b60d">21. Vowel Shift</a></li>
+<li><a href="#orgf32a898">22. Irregular Verbs ( Taken for a ride )</a></li>
+<li><a href="#org8e11a53">23. The Truly Irregular Verbs</a></li>
+<li><a href="#orgd3b7790">24. Introduction to Verb Aspect</a></li>
+<li><a href="#orgdb7d18a">25. Simple Aspect</a></li>
+<li><a href="#orge961842">26. progressive Aspect</a></li>
+<li><a href="#org315f591">27. Prefect Aspect</a></li>
+<li><a href="#org083b510">28. Perfect Progressive Aspect</a></li>
+<li><a href="#org1749994">29. Pronoun</a></li>
+<li><a href="#orgb72bf24">30. Personal Pronoun</a></li>
+<li><a href="#org32553dd">31. Possesive Pronoun</a></li>
+<li><a href="#org1c6cf49">32. Reflexive Pronoun</a></li>
+<li><a href="#orgdacfabe">33. Relative Pronoun</a></li>
+<li><a href="#org184c58e">34. that vs which</a></li>
+<li><a href="#orgc7eb68c">35. who vs whom</a></li>
+<li><a href="#org27a5e67">36. Subject and Object Pronoun</a></li>
+<li><a href="#org7b26bc3">37. Grammatical person and pronoun</a></li>
+<li><a href="#orgcdef01c">38. Pronoun Number</a></li>
+<li><a href="#org1eb636a">39. Intro to the Comparative &amp; Superlative</a></li>
+<li><a href="#org711e2a1">40. How to form comparitive and superlative</a></li>
+<li><a href="#org8171550">41. Table</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org5865d5e" class="outline-2">
+<h2 id="org5865d5e"><span class="section-number-2">1</span> Noun</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Person, Place, things and idea
+</p>
+</div>
+</div>
+
+<div id="outline-container-org299a97c" class="outline-2">
+<h2 id="org299a97c"><span class="section-number-2">2</span> Singular and Plural Noun</h2>
+<div class="outline-text-2" id="text-2">
+<ul class="org-ul">
+<li>Singular -&#x2014;&gt; Single</li>
+<li>Plural -&#x2013;&#x2014;&gt; Plus, More</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org8c646bc" class="outline-2">
+<h2 id="org8c646bc"><span class="section-number-2">3</span> Irregular Plural -f  =&gt; -ve</h2>
+<div class="outline-text-2" id="text-3">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Singular</th>
+<th scope="col" class="org-left">Plural</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">leaf</td>
+<td class="org-left">leaves</td>
+</tr>
+
+<tr>
+<td class="org-left">calf</td>
+<td class="org-left">calves</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org39cbefa" class="outline-2">
+<h2 id="org39cbefa"><span class="section-number-2">4</span> Irregular Plural (-en)</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+child-&gt;children
+brother-&gt;brotheren
+ox-&gt;oxen
+</p>
+</div>
+</div>
+<div id="outline-container-org640a664" class="outline-2">
+<h2 id="org640a664"><span class="section-number-2">5</span> Irregular Plural Noun (base Plural)</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+sheep, fish , bison
+</p>
+</div>
+</div>
+
+<div id="outline-container-org2f9d89d" class="outline-2">
+<h2 id="org2f9d89d"><span class="section-number-2">6</span> Common (general) and Proper (specific) Nouns</h2>
+<div class="outline-text-2" id="text-6">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Common</th>
+<th scope="col" class="org-left">Proper</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">City</td>
+<td class="org-left">Chicago</td>
+</tr>
+
+<tr>
+<td class="org-left">River</td>
+<td class="org-left">Nile</td>
+</tr>
+
+<tr>
+<td class="org-left">Mountain</td>
+<td class="org-left">Everast</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org8cda7a6" class="outline-2">
+<h2 id="org8cda7a6"><span class="section-number-2">7</span> Concrete and Abstract Nouns</h2>
+<div class="outline-text-2" id="text-7">
+<p>
+Concrete : together grown (PHYSICAL)
+Abstract : away drawn (NON PHYSICAL)
+</p>
+</div>
+</div>
+
+<div id="outline-container-org8f5dc51" class="outline-2">
+<h2 id="org8f5dc51"><span class="section-number-2">8</span> Irregular Plural Noun (Mutant Plurals)</h2>
+<div class="outline-text-2" id="text-8">
+<p>
+Seven words Only
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Singular</th>
+<th scope="col" class="org-left">Plural</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">foot</td>
+<td class="org-left">feet</td>
+</tr>
+
+<tr>
+<td class="org-left">Woman</td>
+<td class="org-left">Women</td>
+</tr>
+
+<tr>
+<td class="org-left">Man</td>
+<td class="org-left">Men</td>
+</tr>
+
+<tr>
+<td class="org-left">tooth</td>
+<td class="org-left">teeth</td>
+</tr>
+
+<tr>
+<td class="org-left">goose</td>
+<td class="org-left">geese</td>
+</tr>
+
+<tr>
+<td class="org-left">mouse</td>
+<td class="org-left">mice</td>
+</tr>
+
+<tr>
+<td class="org-left">louse</td>
+<td class="org-left">lice</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org16f688c" class="outline-2">
+<h2 id="org16f688c"><span class="section-number-2">9</span> Irregular Plural Nouns (Foreign Plurals)</h2>
+<div class="outline-text-2" id="text-9">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Language</th>
+<th scope="col" class="org-left">change</th>
+<th scope="col" class="org-left">Singular</th>
+<th scope="col" class="org-left">Irr. Plural</th>
+<th scope="col" class="org-left">Reg. Plural</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Latin</td>
+<td class="org-left">a-&gt;ae</td>
+<td class="org-left">larva</td>
+<td class="org-left">larvae</td>
+<td class="org-left">larvas</td>
+</tr>
+
+<tr>
+<td class="org-left">Latin</td>
+<td class="org-left">us-&gt;i</td>
+<td class="org-left">fungus</td>
+<td class="org-left">fungi</td>
+<td class="org-left">funguses</td>
+</tr>
+
+<tr>
+<td class="org-left">Latin</td>
+<td class="org-left">um-&gt;a</td>
+<td class="org-left">datum</td>
+<td class="org-left">data</td>
+<td class="org-left">---------</td>
+</tr>
+
+<tr>
+<td class="org-left">Latin</td>
+<td class="org-left">ex-ices</td>
+<td class="org-left">index</td>
+<td class="org-left">indices</td>
+<td class="org-left">indexes</td>
+</tr>
+
+<tr>
+<td class="org-left">Greek</td>
+<td class="org-left">is-es</td>
+<td class="org-left">thesis</td>
+<td class="org-left">theses</td>
+<td class="org-left">thesises</td>
+</tr>
+
+<tr>
+<td class="org-left">Greek</td>
+<td class="org-left">on-&gt;a</td>
+<td class="org-left">criterion</td>
+<td class="org-left">criteria</td>
+<td class="org-left">----------</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org50d9444" class="outline-2">
+<h2 id="org50d9444"><span class="section-number-2">10</span> Vowel Harmony</h2>
+<div class="outline-text-2" id="text-10">
+<p>
+The first vowel sound like second vowel in germanic language
+foot -&gt; footi -&gt; feet
+</p>
+</div>
+</div>
+
+<div id="outline-container-org4316591" class="outline-2">
+<h2 id="org4316591"><span class="section-number-2">11</span> Verb</h2>
+<div class="outline-text-2" id="text-11">
+<p>
+Show Action
+Link Concept
+Auxilary/Helping Verb
+</p>
+</div>
+</div>
+
+<div id="outline-container-org06f586e" class="outline-2">
+<h2 id="org06f586e"><span class="section-number-2">12</span> Introduction to Agreement [ ]</h2>
+<div class="outline-text-2" id="text-12">
+<ul class="org-ul">
+<li class="off"><code>[&#xa0;]</code> The Dog Barks</li>
+<li class="off"><code>[&#xa0;]</code> The Dogs Bark</li>
+<li class="on"><code>[X]</code> The Dog Bark</li>
+<li class="on"><code>[X]</code> The Dogs Barks</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgb8e471d" class="outline-2">
+<h2 id="orgb8e471d"><span class="section-number-2">13</span> Introduction to Varb Tense</h2>
+<div class="outline-text-2" id="text-13">
+<p>
+Past Present Future
+</p>
+</div>
+</div>
+
+<div id="outline-container-org3415a5f" class="outline-2">
+<h2 id="org3415a5f"><span class="section-number-2">14</span> The Present Tense (Right Now)</h2>
+<div class="outline-text-2" id="text-14">
+<p>
+I eat a Donut (right now)
+Louise doesn&rsquo;t want a catapult (right now)
+The Water is Super Cold (right now)
+Bertie is Singing in the shower (right now)
+</p>
+</div>
+</div>
+
+<div id="outline-container-orga9a1195" class="outline-2">
+<h2 id="orga9a1195"><span class="section-number-2">15</span> The Past Tense</h2>
+<div class="outline-text-2" id="text-15">
+<p>
+I walkes to the moon
+</p>
+</div>
+</div>
+
+<div id="outline-container-org37da53b" class="outline-2">
+<h2 id="org37da53b"><span class="section-number-2">16</span> The Future Tense</h2>
+<div class="outline-text-2" id="text-16">
+<p>
+Before Verb insert Will in present tense.
+will, is going to
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgc6c2e71" class="outline-2">
+<h2 id="orgc6c2e71"><span class="section-number-2">17</span> The Helping Verb</h2>
+<div class="outline-text-2" id="text-17">
+<p>
+To have, To be
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgdba333c" class="outline-2">
+<h2 id="orgdba333c"><span class="section-number-2">18</span> Linking Verb</h2>
+<div class="outline-text-2" id="text-18">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Action ( Does)</th>
+<th scope="col" class="org-left">State of being Verbs ( is )</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">The bear <b>eats</b> a fish</td>
+<td class="org-left">The bear <b>is</b> hungry</td>
+</tr>
+
+<tr>
+<td class="org-left">The bear <b>looked</b> at me</td>
+<td class="org-left">The bear <b>looked</b> lonely</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+<div id="outline-container-org37952b9" class="outline-2">
+<h2 id="org37952b9"><span class="section-number-2">19</span> Introduction to Irregular Verbs</h2>
+<div class="outline-text-2" id="text-19">
+<p>
+ran, run, will run
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">verb</th>
+<th scope="col" class="org-left">1st Present</th>
+<th scope="col" class="org-left">3rd Present Sg.</th>
+<th scope="col" class="org-left">Plural Present</th>
+<th scope="col" class="org-left">1st Past</th>
+<th scope="col" class="org-left">Plural Past</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">be</td>
+<td class="org-left">i am</td>
+<td class="org-left">she is</td>
+<td class="org-left">we are</td>
+<td class="org-left">i was</td>
+<td class="org-left">we were</td>
+</tr>
+
+<tr>
+<td class="org-left">have</td>
+<td class="org-left">i have</td>
+<td class="org-left">she has</td>
+<td class="org-left">we have</td>
+<td class="org-left">i had</td>
+<td class="org-left">we had</td>
+</tr>
+
+<tr>
+<td class="org-left">do</td>
+<td class="org-left">i do</td>
+<td class="org-left">she does</td>
+<td class="org-left">we do</td>
+<td class="org-left">i did</td>
+<td class="org-left">we did</td>
+</tr>
+
+<tr>
+<td class="org-left">say</td>
+<td class="org-left">i say</td>
+<td class="org-left">she says</td>
+<td class="org-left">we say</td>
+<td class="org-left">i said</td>
+<td class="org-left">we said</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org5792066" class="outline-2">
+<h2 id="org5792066"><span class="section-number-2">20</span> Irregular verbs ( the funky -ed )</h2>
+<div class="outline-text-2" id="text-20">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">past</th>
+<th scope="col" class="org-left">present</th>
+<th scope="col" class="org-left">past</th>
+<th scope="col" class="org-left">present</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">walked</td>
+<td class="org-left">walk</td>
+<td class="org-left">spent</td>
+<td class="org-left">spend</td>
+</tr>
+
+<tr>
+<td class="org-left">slept</td>
+<td class="org-left">sleep</td>
+<td class="org-left">left</td>
+<td class="org-left">leave</td>
+</tr>
+
+<tr>
+<td class="org-left">kept</td>
+<td class="org-left">keep</td>
+<td class="org-left">leapt</td>
+<td class="org-left">leap</td>
+</tr>
+
+<tr>
+<td class="org-left">built</td>
+<td class="org-left">build</td>
+<td class="org-left">lost</td>
+<td class="org-left">lose</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org3c7b60d" class="outline-2">
+<h2 id="org3c7b60d"><span class="section-number-2">21</span> Vowel Shift</h2>
+<div class="outline-text-2" id="text-21">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">presenbt</th>
+<th scope="col" class="org-left">past</th>
+<th scope="col" class="org-left">past perfect</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">sing</td>
+<td class="org-left">sang</td>
+<td class="org-left">sung</td>
+</tr>
+
+<tr>
+<td class="org-left">win</td>
+<td class="org-left">won</td>
+<td class="org-left">won</td>
+</tr>
+
+<tr>
+<td class="org-left">find</td>
+<td class="org-left">found</td>
+<td class="org-left">found</td>
+</tr>
+
+<tr>
+<td class="org-left">sit</td>
+<td class="org-left">sat</td>
+<td class="org-left">sat</td>
+</tr>
+
+<tr>
+<td class="org-left">sneak</td>
+<td class="org-left">snuck</td>
+<td class="org-left">snuck</td>
+</tr>
+
+<tr>
+<td class="org-left">run</td>
+<td class="org-left">ran</td>
+<td class="org-left">run</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-orgf32a898" class="outline-2">
+<h2 id="orgf32a898"><span class="section-number-2">22</span> Irregular Verbs ( Taken for a ride )</h2>
+</div>
+
+<div id="outline-container-org8e11a53" class="outline-2">
+<h2 id="org8e11a53"><span class="section-number-2">23</span> The Truly Irregular Verbs</h2>
+<div class="outline-text-2" id="text-23">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">change</th>
+<th scope="col" class="org-left">present</th>
+<th scope="col" class="org-left">past</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">-ught</td>
+<td class="org-left">teach catch bring</td>
+<td class="org-left">taught caught brought</td>
+</tr>
+
+<tr>
+<td class="org-left">-d + U shift</td>
+<td class="org-left">flee say</td>
+<td class="org-left">fled said</td>
+</tr>
+
+<tr>
+<td class="org-left">past=present</td>
+<td class="org-left">bet set hurt</td>
+<td class="org-left">bet set hurt</td>
+</tr>
+
+<tr>
+<td class="org-left">model auxillary</td>
+<td class="org-left">can may shell will</td>
+<td class="org-left">could might should would</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-orgd3b7790" class="outline-2">
+<h2 id="orgd3b7790"><span class="section-number-2">24</span> Introduction to Verb Aspect</h2>
+<div class="outline-text-2" id="text-24">
+<p>
+&lt;----------&#x2013;&#x2014;|--------------&#x2013;&#x2014;|---------------&#x2013;&#x2014;|-------------&#x2013;&#x2014;&gt;
+              then                  now                 later
+              i walked              i walk               i will walk
+</p>
+
+<ul class="org-ul">
+<li>i have walked</li>
+<li>i have been walking</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgdb7d18a" class="outline-2">
+<h2 id="orgdb7d18a"><span class="section-number-2">25</span> Simple Aspect</h2>
+<div class="outline-text-2" id="text-25">
+<p>
+i walked              i walk           i will walk
+</p>
+</div>
+</div>
+
+<div id="outline-container-orge961842" class="outline-2">
+<h2 id="orge961842"><span class="section-number-2">26</span> progressive Aspect</h2>
+<div class="outline-text-2" id="text-26">
+<p>
+i was walking            i am walking    i will be walking
+</p>
+
+<p>
+ABCs : Always BE ConjugatING
+</p>
+</div>
+</div>
+
+<div id="outline-container-org315f591" class="outline-2">
+<h2 id="org315f591"><span class="section-number-2">27</span> Prefect Aspect</h2>
+<div class="outline-text-2" id="text-27">
+<p>
+it allows us to travel back in time little extra
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">i had washed the dishes</td>
+<td class="org-left">i have washed the dishes</td>
+<td class="org-left">i will have washed the dishes</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org083b510" class="outline-2">
+<h2 id="org083b510"><span class="section-number-2">28</span> Perfect Progressive Aspect</h2>
+<div class="outline-text-2" id="text-28">
+<p>
+<b>have</b> + been + varbing
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">i had benn eating cookies</td>
+<td class="org-left">i have been eating cookies \</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-org1749994" class="outline-2">
+<h2 id="org1749994"><span class="section-number-2">29</span> Pronoun</h2>
+</div>
+<div id="outline-container-orgb72bf24" class="outline-2">
+<h2 id="orgb72bf24"><span class="section-number-2">30</span> Personal Pronoun</h2>
+<div class="outline-text-2" id="text-30">
+<p>
+-me -you -third
+</p>
+</div>
+</div>
+<div id="outline-container-org32553dd" class="outline-2">
+<h2 id="org32553dd"><span class="section-number-2">31</span> Possesive Pronoun</h2>
+<div class="outline-text-2" id="text-31">
+<p>
+possesion = having stuff
+Adjective = my, our, your, her, his, its, their
+Noun = Mine, ours, yours, hers, his ,its , theirss
+</p>
+</div>
+</div>
+<div id="outline-container-org1c6cf49" class="outline-2">
+<h2 id="org1c6cf49"><span class="section-number-2">32</span> Reflexive Pronoun</h2>
+<div class="outline-text-2" id="text-32">
+<p>
+myself, ourself, yourself, yourselves, itself, herself, himself, themselves
+they all are doees(done to) except yourself
+</p>
+</div>
+</div>
+<div id="outline-container-orgdacfabe" class="outline-2">
+<h2 id="orgdacfabe"><span class="section-number-2">33</span> Relative Pronoun</h2>
+<div class="outline-text-2" id="text-33">
+<ul class="org-ul">
+<li>link independent clause with independent clause</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org184c58e" class="outline-2">
+<h2 id="org184c58e"><span class="section-number-2">34</span> that vs which</h2>
+<div class="outline-text-2" id="text-34">
+<ul class="org-ul">
+<li>that is used with everything, which is not good with people 9/10 not used, used with &rsquo;,&rsquo;</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgc7eb68c" class="outline-2">
+<h2 id="orgc7eb68c"><span class="section-number-2">35</span> who vs whom</h2>
+<div class="outline-text-2" id="text-35">
+<ul class="org-ul">
+<li>who &#x2013;&#x2014;&gt; sub, obj</li>
+<li>whom &#x2013;&#x2014;&gt; obj</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org27a5e67" class="outline-2">
+<h2 id="org27a5e67"><span class="section-number-2">36</span> Subject and Object Pronoun</h2>
+<div class="outline-text-2" id="text-36">
+<ul class="org-ul">
+<li>Subject &#x2013;&#x2014;&gt; he , she, they , I</li>
+<li>Object  &#x2013;&#x2014;&gt; him, her, them, me</li>
+<li>you, it are far away from this shit</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org7b26bc3" class="outline-2">
+<h2 id="org7b26bc3"><span class="section-number-2">37</span> Grammatical person and pronoun</h2>
+<div class="outline-text-2" id="text-37">
+<p>
+Stay in you lane
+</p>
+</div>
+</div>
+<div id="outline-container-orgcdef01c" class="outline-2">
+<h2 id="orgcdef01c"><span class="section-number-2">38</span> Pronoun Number</h2>
+<div class="outline-text-2" id="text-38">
+<p>
+you and they execpt in sing and plu.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org1eb636a" class="outline-2">
+<h2 id="org1eb636a"><span class="section-number-2">39</span> Intro to the Comparative &amp; Superlative</h2>
+<div class="outline-text-2" id="text-39">
+<ul class="org-ul">
+<li>happy, happier, happiest
+comparative = more
+superlative = most</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org711e2a1" class="outline-2">
+<h2 id="org711e2a1"><span class="section-number-2">40</span> How to form comparitive and superlative</h2>
+</div>
+
+
+
+
+
+<div id="outline-container-org8171550" class="outline-2">
+<h2 id="org8171550"><span class="section-number-2">41</span> Table</h2>
+<div class="outline-text-2" id="text-41">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">I</th>
+<th scope="col" class="org-left">II</th>
+<th scope="col" class="org-left">III</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Noun</td>
+<td class="org-left">footi&#x2013;fetti OM</td>
+<td class="org-left">Funky-ed</td>
+</tr>
+
+<tr>
+<td class="org-left">S&amp;P Noun</td>
+<td class="org-left">Verb</td>
+<td class="org-left">VowelShift</td>
+</tr>
+
+<tr>
+<td class="org-left">-en irr.</td>
+<td class="org-left">Intro. Agreement</td>
+<td class="org-left">taken for&#x2026;</td>
+</tr>
+
+<tr>
+<td class="org-left">base</td>
+<td class="org-left">Intro verb tense</td>
+<td class="org-left">Truly Irr.</td>
+</tr>
+
+<tr>
+<td class="org-left">-f ve</td>
+<td class="org-left">Present RN</td>
+<td class="org-left">Verb Aspect</td>
+</tr>
+
+<tr>
+<td class="org-left">Common,Specific</td>
+<td class="org-left">Past</td>
+<td class="org-left">simple</td>
+</tr>
+
+<tr>
+<td class="org-left">Concrete, Abstract</td>
+<td class="org-left">Future has will</td>
+<td class="org-left">ABCs</td>
+</tr>
+
+<tr>
+<td class="org-left">MutantPlural</td>
+<td class="org-left">Helping Verb  (HV)</td>
+<td class="org-left">have + walked</td>
+</tr>
+
+<tr>
+<td class="org-left">ForeignPlural</td>
+<td class="org-left">Linking Verb</td>
+<td class="org-left">have+been+verbing</td>
+</tr>
+
+<tr>
+<td class="org-left">Grammar</td>
+<td class="org-left">Irr.Verb be,has,do</td>
+<td class="org-left">Modal Verb</td>
+</tr>
+</tbody>
+</table>
+
+<ul class="org-ul">
+<li>HV : inflicated form of to have, to be ( is, has, was, had beeen ) :::::::: Linking Verb &ldquo;is&rdquo; State of being verb</li>
+<li></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: AkashRaj</p>
+<p class="date">Created: 2021-07-21 Wed 22:45</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,209 @@
+#+TITLE: Grammar
+#+SETUPFILE: https://blog.bugswriter.com/static/theme.setup
+
+* Noun
+Person, Place, things and idea
+
+* Singular and Plural Noun
+- Singular ----> Single
+- Plural ------> Plus, More
+
+* Irregular Plural -f  => -ve
+| Singular | Plural |
+|----------+--------|
+| leaf     | leaves |
+| calf     | calves |
+
+* Irregular Plural (-en)
+child->children
+brother->brotheren
+ox->oxen
+* Irregular Plural Noun (base Plural)
+sheep, fish , bison
+
+* Common (general) and Proper (specific) Nouns
+| Common   | Proper  |
+|----------+---------|
+| City     | Chicago |
+| River    | Nile    |
+| Mountain | Everast |
+
+* Concrete and Abstract Nouns
+Concrete : together grown (PHYSICAL)
+Abstract : away drawn (NON PHYSICAL)
+
+* Irregular Plural Noun (Mutant Plurals)
+Seven words Only
+| Singular | Plural |
+|----------+--------|
+| foot     | feet   |
+| Woman    | Women  |
+| Man      | Men    |
+| tooth    | teeth  |
+| goose    | geese  |
+| mouse    | mice   |
+| louse    | lice   |
+
+* Irregular Plural Nouns (Foreign Plurals)
+| Language | change  | Singular  | Irr. Plural | Reg. Plural |
+|----------+---------+-----------+-------------+-------------|
+| Latin    | a->ae   | larva     | larvae      | larvas      |
+| Latin    | us->i   | fungus    | fungi       | funguses    |
+| Latin    | um->a   | datum     | data        | ---------   |
+| Latin    | ex-ices | index     | indices     | indexes     |
+| Greek    | is-es   | thesis    | theses      | thesises    |
+| Greek    | on->a   | criterion | criteria    | ----------  |
+
+* Vowel Harmony
+The first vowel sound like second vowel in germanic language
+foot -> footi -> feet
+
+* Verb
+Show Action
+Link Concept
+Auxilary/Helping Verb
+
+* Introduction to Agreement [ ]
+- [ ] The Dog Barks
+- [ ] The Dogs Bark
+- [X] The Dog Bark
+- [X] The Dogs Barks
+
+* Introduction to Varb Tense
+Past Present Future
+
+* The Present Tense (Right Now)
+I eat a Donut (right now)
+Louise doesn't want a catapult (right now)
+The Water is Super Cold (right now)
+Bertie is Singing in the shower (right now)
+
+* The Past Tense
+I walkes to the moon
+
+* The Future Tense
+Before Verb insert Will in present tense.
+will, is going to
+
+* The Helping Verb
+To have, To be
+
+* Linking Verb
+| Action ( Does)          | State of being Verbs ( is ) |
+|-------------------------+-----------------------------|
+| The bear *eats* a fish  | The bear *is* hungry        |
+| The bear *looked* at me | The bear *looked* lonely    |
+
+
+* Introduction to Irregular Verbs
+ran, run, will run
+| verb | 1st Present | 3rd Present Sg. | Plural Present | 1st Past | Plural Past |
+|------+-------------+-----------------+----------------+----------+-------------|
+| be   | i am        | she is          | we are         | i was    | we were     |
+| have | i have      | she has         | we have        | i had    | we had      |
+| do   | i do        | she does        | we do          | i did    | we did      |
+| say  | i say       | she says        | we say         | i said   | we said     |
+
+* Irregular verbs ( the funky -ed )
+    | past   | present | past  | present |
+    |--------+---------+-------+---------|
+    | walked | walk    | spent | spend   |
+    | slept  | sleep   | left  | leave   |
+    | kept   | keep    | leapt | leap    |
+    | built  | build   | lost  | lose    |
+
+* Vowel Shift
+| presenbt | past  | past perfect |
+|----------+-------+--------------|
+| sing     | sang  | sung         |
+| win      | won   | won          |
+| find     | found | found        |
+| sit      | sat   | sat          |
+| sneak    | snuck | snuck        |
+| run      | ran   | run          |
+
+* Irregular Verbs ( Taken for a ride )
+
+*  The Truly Irregular Verbs
+| change          | present            | past                     |
+|-----------------+--------------------+--------------------------|
+| -ught           | teach catch bring  | taught caught brought    |
+| -d + U shift    | flee say           | fled said                |
+| past=present    | bet set hurt       | bet set hurt             |
+| model auxillary | can may shell will | could might should would |
+
+* Introduction to Verb Aspect
+<---------------|-------------------|--------------------|------------------>
+              then                  now                 later
+              i walked              i walk               i will walk
+
+ - i have walked
+ - i have been walking
+
+* Simple Aspect
+i walked              i walk           i will walk
+
+* progressive Aspect
+i was walking            i am walking    i will be walking
+
+ABCs : Always BE ConjugatING
+
+* Prefect Aspect
+it allows us to travel back in time little extra
+| i had washed the dishes | i have washed the dishes | i will have washed the dishes |
+
+* Perfect Progressive Aspect
+               *have* + been + varbing
+| i had benn eating cookies | i have been eating cookies \ |
+* Pronoun
+* Personal Pronoun
+-me -you -third
+* Possesive Pronoun
+possesion = having stuff
+Adjective = my, our, your, her, his, its, their
+Noun = Mine, ours, yours, hers, his ,its , theirss
+* Reflexive Pronoun
+myself, ourself, yourself, yourselves, itself, herself, himself, themselves
+they all are doees(done to) except yourself
+* Relative Pronoun
+- link independent clause with independent clause
+* that vs which
+- that is used with everything, which is not good with people 9/10 not used, used with ','
+* who vs whom
+- who -----> sub, obj
+- whom -----> obj
+* Subject and Object Pronoun
+- Subject -----> he , she, they , I
+- Object  -----> him, her, them, me
+- you, it are far away from this shit
+* Grammatical person and pronoun
+Stay in you lane
+* Pronoun Number
+you and they execpt in sing and plu.
+
+* Intro to the Comparative & Superlative
+- happy, happier, happiest
+  comparative = more
+  superlative = most
+* How to form comparitive and superlative
+
+
+
+
+
+* Table
+| I                  | II                 | III               |
+|--------------------+--------------------+-------------------|
+| Noun               | footi--fetti OM    | Funky-ed          |
+| S&P Noun           | Verb               | VowelShift        |
+| -en irr.           | Intro. Agreement   | taken for...      |
+| base               | Intro verb tense   | Truly Irr.        |
+| -f ve              | Present RN         | Verb Aspect       |
+| Common,Specific    | Past               | simple            |
+| Concrete, Abstract | Future has will    | ABCs              |
+| MutantPlural       | Helping Verb  (HV) | have + walked     |
+| ForeignPlural      | Linking Verb       | have+been+verbing |
+| Grammar            | Irr.Verb be,has,do | Modal Verb        |
+
+- HV : inflicated form of to have, to be ( is, has, was, had beeen ) :::::::: Linking Verb "is" State of being verb
+-

@@ -1,0 +1,79 @@
+#+TITLE: Git
+
+* The Basic
+- git init demo
+- workspace --> staging area --> repository --> remote repository
+- git init .
+- git add .
+- git commit (without -m flag you can use your default editor)
+- git log
+- git ls-files (show tracked file)
+- git reset HEAD README.md
+- git chekcout -- file
+- git config --global alias.hist "log --oneline --graph --all --decorate"
+- git add -u -A
+
+
+* Advance
+** Compairing Difference
+- git diff pointer1 pointer2
+- git difftool
+** Branching Merge
+- Fast forward Branch
+- Automatic Merge
+- Manual Merge
+
+** Simple Branching Example
+- git branch
+- git branchname
+- git checkout -b branchName
+- git branch -d Branch
+- git merge branchName
+** git conflic
+- git mergetool
+** gti tag
+- git tag tagName
+- git tag --list ( lightweight )
+- git tag -a tagName -m "message"
+- git show tagName (annoted tag which have more detail only)
+** git stash
+- git stash
+-git stash pop ( apply + drop stash )
+** Time Travel
+- git reset hard soft
+- git reflog
+
+* Github
+- git push -u origin master --tags
+- git remote add origin url
+- git remote seturl url
+
+* Github Repository
+- git config --global push.default simple
+
+* Git Branc
+git config --global -e
+git pull origin :deleteBranch
+git pull --rebase
+* Git Tags
+- git tag tagName branch
+- git tag
+- git tag -a tagNAme -m "mesage"
+- git push tags
+- git push origin tagName
+- git push origin :tagName
+- git tag -f unstable pointer
+- git push --force origin unstable
+
++ [[file:alexa/index.png][picter]]
+* Git Social Coding
+- Fork Original Directory
+- Clone Directory from your accout
+- Change into branch and push (many times)
+- Create Pull Request
+- Synchronize Changes by adding url from original directory
+* Github Issue
+- Labels
+- Milestone
+- git commit -m "message, close #4"
+- Comment #3

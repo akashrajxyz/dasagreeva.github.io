@@ -1,0 +1,70 @@
+#+TITLE: Stock
+
+* Primary Market Issues
+- Public Issue
+  - IPO
+  - FPO
+
+- Private Placement
+  - Qualified Institutional Placement
+  - Pregerrential Issue
+
+- Right & Bonus Issue
+  - Right Issue
+  - Bonus Issue
+* IPO and FPO
+|---------------------------------+-------------------------------------|
+| Fresh Issue                     | Offer For Sale                      |
+| Company Issues new Share        | No New Share Issue                  |
+| Capital Inc.                    | Capital of Company remain Unchanged |
+| % ShareHolding Desc. (Existing) | % ShareHolding Desc. (Offered)      |
+|                                 | % ShareHolding Const. (Not Offered) |
+|---------------------------------+-------------------------------------|
+
+IPO -----------------> FPO
+if company issue new shares or existing shareholder wants to dilute their shares
+
+** Secondary Market
+Improves Marketability , Enables price Discovery
+Indicator of Economic Activity
+- index
+- revenue
+- profitability
+- capital investment
+- expansion
+Market for Corporate Control
+
+* IPO
+** Fixed Price Issue
+- company decides the price
+- in Consultation with Lead Manager
+  - based on expected performance
+  - price of shares of comparable companies
+** Book Built Issue or Dutch Auction
+price decide by aution
+Comapny+Lead Managers
+- set a floor price or price band
+- decides on cut-off price(lowest bid)
+investor who bid higher >= cut-off get alotment on cut-off price
+
+* Stock Exchange
+
+stock exchange <--------> Broker <------------> Investors
+Provide facilities for issue and redemption of securities
+
+** Broker
+Stock Brokers are registered members of the exhange also know as Trading Member
+- All memberse meet minimum criteria on
+  - Capital
+  - Qualification
+  - Net Worth etc.
+- Broker's Provide
+  - Market Information
+  - News Updates
+  - Research Reports
+  - Analytical Tools
+
+** Advantages of Stock Exchange
+- stock Exchange Reduces Settlement Risk(counterparty defaulting)
+- Benefits of Regulation & Redressal provisions of law
+- Liquid Markets ensure execution : No Need to locate counterparties

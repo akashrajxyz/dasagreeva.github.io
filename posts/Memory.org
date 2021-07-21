@@ -1,0 +1,20 @@
+#+TITLE: Memory
+
+* Test your Memory [0/0]
+
+Conscious association "never belie a lie"
+- [] test #1
+    book,ashtray coat cow match razor apple purse venetian blind frying pan clock, eyeglasses door knob ,bottle worm
+    Score : = 55
+- [] test #2
+  1. radio 2. air plane 3. lamp 4. cigarette 5. picture
+  2. chair horse egg tea cup dress floweri window perfume book
+     Score := 70
+- [] test #3
+  724432786173987651
+  score := 45
+* Link Method of memory
+- Mental picture as ridiculos as it can be
+- carpet, paper bottle bed fish telephone cigarette nail shoe microphone pen television set, plate, donut automobile cofee
+brick
+

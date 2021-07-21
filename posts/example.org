@@ -1,0 +1,38 @@
+#+TITLE: Example
+
+* Export
+C-c C-e
+
+
+* SRC Code
+<s tab =======> C-c '
+C-c C-c to run
+#+BEGIN_SRC ruby
+def fact(n)
+  if n==0
+    1
+  else
+    n * fact(n-1)
+  end
+end
+
+fact(5)
+#+END_SRC
+
+#+RESULTS:
+
+* TODO expalin thinkh
+SCHEDULED: <2020-08-12 Wed>
+
+* [ ] Some IMP command
+- org-narrow-to-subtree    SPC-m-s-n -------------> SPC-m-s-N
+- C-c '     <s TAB    src-block-code
+
+
+* ORG DOES A LOT
+Time Tracking, spreadsheets, graphs, inline code, math formulas........
+* thinker of the coder
+  thi fight
+    in the name of the
+
+ksingk

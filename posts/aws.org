@@ -1,0 +1,16 @@
+#+TITLE: Aws
+* Budget
+* IAM (identity and access management)
+- you whole
+  - users wv
+  - roles
+  - group
+users is for physical persion and roles is for machine
+- multi factor authentication
+- iam policies json
+- least privilege principal
+- iam federation (SAML)
+
+- one IAM User per Physical Person
+- one IAM Role per Application
+**

@@ -1,0 +1,20 @@
+#+TITLE: Elisp2
+#+BEGIN_SRC elisp :results output
+( if (string-match "[0-9]+" "8787824782") 9 8)
+#+END_SRC
+* Basic
+** Elisp Examples
+- set-mark point
+- (random t) (random 99999)
+- thing-at-point 'symbol
+- apropos-command, variable, value
+* Basic Funtions
+- save-exursion
+- erase-buffer
+- delete-and-extract-region 3 20 ( return delete text )
+- string-match -------> match-data, match-string
+- replace-regexp-in-string
+- split-string
+- format
+- with-temp-buffer
+- string-trim (require 'subr-x')

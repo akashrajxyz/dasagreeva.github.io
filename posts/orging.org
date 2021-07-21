@@ -1,0 +1,84 @@
+:PROPERTIES:
+:ID:       128899fe-ef75-4b27-9c21-4f8039703baa
+:END:
+#+TITLE: Orgin
+#+DESCRIPTION: A Wide  Overview of Org
++ [[New]]
++ [[*Doom][Doom]]
++ [[org-agenda-file-to-front][link]]
+* thjnker of the weak
+** toggle headin00jk0x
+SPC-m-h
+** unorderd list
+-,+
+** ordered lsit
+1. thiner
+2. fighter
+** unfold heading
+    tab
+    tab_shift full documentZM
+    z o open
+    z c close
+    z M fold full document
+    z R unfold document
+
+** other vim key bind for motion
+z j down.................................. z k up
+** promote demote headline
+meta - h,j,k,l
+meta shift h,j,k,l
+** insert snippet
+SPC i s insert snippet
+** TODO
+*** TODO toggle
+spc m t
+*** TODO remove todo or  add
+shift left arrow key
+*** SCHEDULED: <2020-08-27 Thu 16:00-18:00>
+*** check box [ ] [1/3]
+- [X] thinker
+- [ ] fighter
+- [ ] of the brick
+*** move this file to front of agenda
+C-c [
+***  oA
+** Tables | like | think | fighter
+*** make org table headline : SPC m b -
+*** Duplicate field in cell : Shift-RET
+*** go to forward/backward in cell : TAB/Shift-TAB
+    | one | two     | three | four |
+    |-----+---------+-------+------|
+    |     |         |       |      |
+    |     |         |       |      |
+    |     | shinger |       |      |
+*** Table MOtion
+- move row up : M-k
+- move row down : M-j
+- move current column LEFT : M-h
+- INSER new COloumn: M-Shift-l
+- Delete current Coloumn : M-Shift-h
+- Insert new row: M-shift- j
+
+* New
+** Starting
+spc-i-s (snippet),  Tree ijk
+shift+TAB
+z+o,c open and close,,,,,  z+r unfold===> z+m fold
+narrow or widen particular subnode spc+m+s+n,,,,, N
+** Text Relating things
+spc+x
+** TODO Evil key
+SCHEDULED: <2020-08-05 Wed 16:00-19:00>
+v+a+element , v+a+r
+=+a+e indent around element
+- []
+** Org-Agenda
+DEADLINE: <2020-08-13 Thu>
+- shift arrow keys to TODO,........
+- scedule search
+- org-agenda-file-to-front
+
+* New Saga Begins
+** Doom
+- M-hjkl move in tree
+- Link

@@ -1,0 +1,25 @@
+#+TITLE: Thinker Bitch
+
+* RegEx
+- .[{()\^$?*+
+- \d \w \s(whitespace) \b(Word Boundary)
+- [^a-Z0-7.]  [Character Set] '|' Either Or (r|s|rs)
+- Quantifier ? * + {4,10} ----- Group $2
+
+* Find
+- find . -type f -name "test_1.txt"
+  wildcard for name *
+  iname for case insensitive
+- find . -mmin -10 less than 10 minute
+  +10 :  more than 10 minute
+  mtime : for days
+  amin : access
+  cmin : changes
+- find . -size +5M
+  k kilobytes
+  G gigabytes
+- find . -empty
+- find . -perm 777
+- find -exec chown coreyschafer:www-data {} (+ or \;)
+  maxdepth 1 : current directory
+  {type, name, time, size, empty, perm, maxdepth, exec}

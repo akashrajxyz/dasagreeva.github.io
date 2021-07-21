@@ -1,0 +1,51 @@
+#+TITLE: Cpp
+#+SETUPFILE: https://blog.bugswriter.com/static/theme.setup
+
+* Random Number
+#include<cstdlib>
+#include<ctime>
+rand()
+srand(number) -----> change algorithm
+number = time(0) w
+
+
+* Default Arguments
+#+BEGIN_SRC c++
+volume(int l = 5, int b = 5, int h = 5);
+#+END_SRC
+* Unary Sope Resolutions
+"::" use local variable
+* Funtion OverWrite
+* Constant Funtion Object
+void printShiz2() const;
+void Sally::printShiz2() const{};
+constant object can only call constant methods
+* Member Initializer
+#+BEGIN_SRC cpp
+// inittializing object regular or constant member
+void Sally::Sally(int a, int b)
+: regvar(a),
+  constVar(b){
+
+}
+#+END_SRC
+* Composition
+member initializer
+
+* Freind
+freind void stinkysFreind(StankFist &sfo);
+* This
+this->h //this store address of current object
+* Operator Overloading
+Sally operaor+(Sally sfo);
+* Inheritance
+class Daughter: public Mother{
+}
+* Protected Member
+ in object inheritance only private is unreachable.
+* Virutal Funtion
+virtual void attack();
+* Abstract Classes and Pure Virtual Funtions
+virtual void attack() = 0;
+it must overwite the funtion
+abstract class have pure virtual funtion

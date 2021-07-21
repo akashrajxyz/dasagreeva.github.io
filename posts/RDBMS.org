@@ -1,0 +1,50 @@
+#+TITLE: RDBMS
+
+* what is relational database ?
+- entity (data about)
+- attribute (what be store)
+
+* RDBMS
+
+* SQL
+** Define (DDL)
+** Manipulate (DML)
+
+* Database Design
+- Data Integrity
+- Conceptual
+- Logical
+- Physical
+
+*  Data integrity
+- Entity Integrity
+- Refrential Integrity
+- Domain Integrity
+
+* Database Term
+- Relation (a connection between two set)
+- Normalization ( a step to integrity )
+- Naming Civention ( Consistency )
+
+* Atomic Value
+
+
+* Key
+
+*unique* attribute to identify particular record
+ Never Change
+ Never Null
+
+** Index
+** Look Up Table
+- Integrity
+- Unique
+- Improve Function
+- less Works
+- all for added complexity
+** Super Key Candidate Key
+Any no. of column forces row to be unique
+Least no. of column (candidate key)
+
+** Primary Key and Alternate Key
+** Surrogate and NAtural Key
